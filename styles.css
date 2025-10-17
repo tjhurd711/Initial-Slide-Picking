@@ -419,7 +419,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
 }
 
 .preview-text-section {
@@ -428,94 +428,66 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 40px;
+    padding: 30px;
     text-align: left;
 }
 
-/* Memorial Frames with Photos Inside */
-.memorial-frame {
-    position: relative;
+/* Canva Frame Images */
+.canva-frame {
     width: 100%;
-    max-width: 280px;
-    aspect-ratio: 3/4;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-}
-
-.memorial-frame.ornate {
-    border: 18px solid white;
-    box-shadow: 
-        inset 0 0 0 2px #d4af37,
-        inset 0 0 20px rgba(212, 175, 55, 0.2),
-        0 10px 30px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(145deg, #ffffff, #f8f8f8);
-}
-
-.memorial-frame.simple {
-    border: 25px solid white;
-    box-shadow: 
-        inset 0 0 0 1px #e0e0e0,
-        0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.frame-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 220px;
+    height: auto;
     display: block;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
 }
 
-/* Preview Text Styling - Direct on Background */
+/* Preview Text Styling - Smaller Sizes */
 .preview-title {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 32px;
+    font-size: 22px;
     font-style: italic;
     color: white;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 0, 0, 0.6);
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7);
     font-weight: normal;
 }
 
 .preview-name {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 48px;
+    font-size: 32px;
     font-style: italic;
     font-weight: bold;
     color: white;
-    margin: 10px 0 20px 0;
+    margin: 8px 0 12px 0;
     line-height: 1.2;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 0, 0, 0.6);
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 .preview-dates {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 26px;
+    font-size: 18px;
     font-style: italic;
     color: white;
     margin: 0;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 0, 0, 0.6);
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 .preview-tagline {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 28px;
+    font-size: 20px;
     font-style: italic;
     color: white;
     margin: 0;
     line-height: 1.5;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 0, 0, 0.6);
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 /* Photo Slide Preview - Centered with Border */
@@ -554,8 +526,8 @@ footer {
     }
     
     .preview-frame-section {
-        flex: 0 0 45%;
-        padding: 20px;
+        flex: 0 0 40%;
+        padding: 15px;
     }
     
     .preview-text-section {
@@ -565,27 +537,8 @@ footer {
         text-align: center;
     }
     
-    .memorial-frame {
-        max-width: 200px;
-    }
-    
-    .preview-title {
-        font-size: 22px;
-    }
-    
-    .preview-name {
-        font-size: 32px;
-    }
-    
-    .preview-dates,
-    .preview-tagline {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .memorial-frame {
-        max-width: 150px;
+    .canva-frame {
+        max-width: 160px;
     }
     
     .preview-title {
@@ -599,5 +552,24 @@ footer {
     .preview-dates,
     .preview-tagline {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .canva-frame {
+        max-width: 130px;
+    }
+    
+    .preview-title {
+        font-size: 16px;
+    }
+    
+    .preview-name {
+        font-size: 22px;
+    }
+    
+    .preview-dates,
+    .preview-tagline {
+        font-size: 14px;
     }
 }
