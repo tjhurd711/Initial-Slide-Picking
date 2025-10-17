@@ -221,20 +221,86 @@ function handleCustomUpload(e) {
 
     customBackgroundFile = file;
 
-    // Show preview
+    // Show preview with realistic slide mockups
     const reader = new FileReader();
     reader.onload = function(event) {
+        const bgUrl = event.target.result;
+        
+        // Get form values for dynamic preview
+        const deceasedName = document.getElementById('deceasedName').value || '{{NAME}}';
+        const birthdate = document.getElementById('birthdate').value;
+        const deathdate = document.getElementById('deathdate').value;
+        
+        // Format dates nicely
+        let datesText = '{{DATES}}';
+        if (birthdate && deathdate) {
+            const birth = new Date(birthdate);
+            const death = new Date(deathdate);
+            datesText = `${birth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} – ${death.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
+        } else if (birthdate) {
+            const birth = new Date(birthdate);
+            datesText = birth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + ' – Present';
+        }
+        
+        // Get selected border for photo preview
+        const borderRadio = document.querySelector('input[name="border"]:checked');
+        const borderClass = borderRadio ? `border-${borderRadio.value}` : '';
+        
+        // Sample photos for middle slide
+        const samplePhotos = [
+            'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
+            'https://dl.dropboxusercontent.com/scl/fi/8t2slrauqqr8poib5ekbt/DSC_0333.JPG?rlkey=d2v17cupbgk5prodeyftskfdg&st=h6pwi9e9&dl=1',
+            'https://dl.dropboxusercontent.com/scl/fi/7v625luwbb2ch2h5u6zi3/200-s_Eureka-Springs_0002.jpg?rlkey=ff5z6rpteujr71a4r5jvg9b49&st=6zbovd9r&dl=1'
+        ];
+        const randomPhoto = samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
+        
+        // Update preview slides
         const previewSlides = document.querySelectorAll('.preview-slide');
-        previewSlides.forEach(slide => {
-            slide.style.backgroundImage = `url(${event.target.result})`;
-        });
+        
+        // Title slide (split layout)
+        previewSlides[0].style.backgroundImage = `url(${bgUrl})`;
+        previewSlides[0].innerHTML = `
+            <div class="preview-split-layout">
+                <div class="preview-frame-left">
+                    <div class="ornate-frame"></div>
+                </div>
+                <div class="preview-text-right">
+                    <h2 class="preview-heading">In loving memory of</h2>
+                    <h1 class="preview-name">${deceasedName}</h1>
+                    <p class="preview-dates">${datesText}</p>
+                </div>
+            </div>
+        `;
+        
+        // Photo slide (full background with centered photo)
+        previewSlides[1].style.backgroundImage = `url(${bgUrl})`;
+        previewSlides[1].innerHTML = `
+            <div class="preview-photo-container">
+                <img src="${randomPhoto}" class="preview-sample-photo ${borderClass}" alt="Sample Photo">
+            </div>
+        `;
+        
+        // End slide (split layout)
+        previewSlides[2].style.backgroundImage = `url(${bgUrl})`;
+        previewSlides[2].innerHTML = `
+            <div class="preview-split-layout">
+                <div class="preview-frame-left">
+                    <div class="simple-frame"></div>
+                </div>
+                <div class="preview-text-right">
+                    <h2 class="preview-heading">Remembering the legacy of</h2>
+                    <h1 class="preview-name">${deceasedName}</h1>
+                    <p class="preview-tagline">Always in our hearts, never forgotten.</p>
+                </div>
+            </div>
+        `;
+        
         document.getElementById('customPreview').style.display = 'block';
     };
     reader.readAsDataURL(file);
 
     hideError();
 }
-
 async function handleSubmit(e) {
     e.preventDefault();
 
