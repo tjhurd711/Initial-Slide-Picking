@@ -432,10 +432,10 @@ footer {
     text-align: left;
 }
 
-/* Canva Frame Images - 2.5x BIGGER */
+/* Canva Frame Images - Better Sized for Container */
 .canva-frame {
     width: 100%;
-    max-width: 550px;  /* Was 220px, now 550px (2.5x) */
+    max-width: 350px;  /* Balanced size - not too big, not too small */
     height: auto;
     display: block;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
