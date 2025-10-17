@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Order By Age</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-container {
+            text-align: center;
+            padding: 60px 30px;
+        }
+
+        .thank-you-container h1 {
+            color: #667eea;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-container .checkmark {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        .thank-you-container p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .thank-you-container .highlight {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://dl.dropboxusercontent.com/scl/fi/i5ye9vg5wzfvxwyrwczq6/Untitled-940-x-600-px-1400-x-600-px.png?rlkey=rk5t9ot5gchvjcqx71lwiln1o&st=1kjskc34&dl=1" alt="Order By Age" class="logo">
+        </header>
+
+        <main class="thank-you-container">
+            <div class="checkmark">✓</div>
+            <h1>Thank You!</h1>
+            
+            <div id="messageContent">
+                <!-- Message will be dynamically loaded based on type -->
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Order By Age. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            const messageDiv = document.getElementById('messageContent');
+
+            if (type && type.toLowerCase().includes('file')) {
+                // File Only message
+                messageDiv.innerHTML = `
+                    <p>Your photos have been successfully uploaded!</p>
+                    <div class="highlight">
+                        <p><strong>What's Next?</strong></p>
+                        <p>You will receive a verification and birth year intake form via email within <strong>5-10 minutes</strong>.</p>
+                        <p>Your renamed age-detected photos will be returned within <strong>25 minutes</strong>.</p>
+                    </div>
+                    <p>Check your email for updates!</p>
+                `;
+            } else {
+                // Regular order message
+                messageDiv.innerHTML = `
+                    <p>Your customization is complete and we're processing your photos now!</p>
+                    <div class="highlight">
+                        <p><strong>What's Next?</strong></p>
+                        <p>You will receive a verification and birth year intake form via email within <strong>5-10 minutes</strong>. This email will help us validate key faces in your photos and improve our age-sorting.</p>
+                        <p>After you complete this face verification form, your age-sorted photos and draft slideshow (if ordered) will be returned via email within <strong>25-35 minutes</strong>.</p>
+                    </div>
+                    <p>Check your email for the verification form!</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
