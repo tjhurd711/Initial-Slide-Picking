@@ -447,22 +447,22 @@ footer {
     text-align: left;
 }
 
-/* Bigger Canva Frame Images */
+/* Bigger Canva Frame Images - 1.5x bigger */
 .canva-frame {
     width: 100%;
-    max-width: 500px;  /* INCREASED from 350px to 500px */
+    max-width: 550px;  /* INCREASED from 500px to 550px (1.5x from original 350px) */
     height: auto;
     display: block;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
 }
 
-/* Preview Text Styling - MUCH SMALLER */
+/* Preview Text Styling - MUCH BIGGER for readability */
 .preview-title {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 14px;  /* REDUCED - was 16px */
+    font-size: 28px;  /* INCREASED - was 14px, now 2x bigger */
     font-style: italic;
     color: white;
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
     text-shadow: 
         2px 2px 4px rgba(0, 0, 0, 0.9),
         0 0 15px rgba(0, 0, 0, 0.7);
@@ -471,11 +471,11 @@ footer {
 
 .preview-name {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 18px;  /* REDUCED - was 22px */
+    font-size: 42px;  /* INCREASED - was 18px, now 2.3x bigger */
     font-style: italic;
     font-weight: bold;
     color: white;
-    margin: 4px 0 6px 0;
+    margin: 8px 0 12px 0;
     line-height: 1.2;
     text-shadow: 
         2px 2px 4px rgba(0, 0, 0, 0.9),
@@ -484,7 +484,7 @@ footer {
 
 .preview-dates {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 11px;  /* REDUCED - was 13px */
+    font-size: 24px;  /* INCREASED - was 11px, now 2.2x bigger */
     font-style: italic;
     color: white;
     margin: 0;
@@ -495,7 +495,7 @@ footer {
 
 .preview-tagline {
     font-family: 'Brush Script MT', cursive, Georgia, serif;
-    font-size: 12px;  /* REDUCED - was 14px */
+    font-size: 26px;  /* INCREASED - was 12px, now 2.2x bigger */
     font-style: italic;
     color: white;
     margin: 0;
