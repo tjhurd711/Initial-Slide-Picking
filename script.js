@@ -246,7 +246,7 @@ function handleCustomUpload(e) {
         const borderRadio = document.querySelector('input[name="border"]:checked');
         const borderClass = borderRadio ? `border-${borderRadio.value}` : 'border-white';
         
-        // Sample photos for frames and middle slide
+        // Sample photo for middle slide
         const samplePhotos = [
             'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
             'https://dl.dropboxusercontent.com/scl/fi/8t2slrauqqr8poib5ekbt/DSC_0333.JPG?rlkey=d2v17cupbgk5prodeyftskfdg&st=h6pwi9e9&dl=1',
@@ -254,17 +254,19 @@ function handleCustomUpload(e) {
         ];
         const randomPhoto = samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
         
+        // Frame images from Canva
+        const titleFrameImg = 'https://dl.dropboxusercontent.com/scl/fi/u718s8qo3nem01ygwj7bl/Untitled-design-1.png?rlkey=iuk3889w9rlzfcsxbms8todek&st=ni1vq75d&dl=1';
+        const endFrameImg = 'https://dl.dropboxusercontent.com/scl/fi/7dbkkkyxkkhleutao264c/Untitled-design-2.png?rlkey=7t45maoxga05bdprq6d7ihb0w&st=pv1uvnt6&dl=1';
+        
         // Update preview slides
         const previewSlides = document.querySelectorAll('.preview-slide');
         
-        // Title slide (frame + text on custom background)
+        // Title slide (frame image + text on custom background)
         previewSlides[0].style.backgroundImage = `url(${bgUrl})`;
         previewSlides[0].innerHTML = `
             <div class="preview-split-layout">
                 <div class="preview-frame-section">
-                    <div class="memorial-frame ornate">
-                        <img src="${randomPhoto}" alt="Memorial Photo" class="frame-photo">
-                    </div>
+                    <img src="${titleFrameImg}" alt="Memorial Frame" class="canva-frame">
                 </div>
                 <div class="preview-text-section">
                     <p class="preview-title">In loving memory of</p>
@@ -282,14 +284,12 @@ function handleCustomUpload(e) {
             </div>
         `;
         
-        // End slide (frame + text on custom background)
+        // End slide (frame image + text on custom background)
         previewSlides[2].style.backgroundImage = `url(${bgUrl})`;
         previewSlides[2].innerHTML = `
             <div class="preview-split-layout">
                 <div class="preview-frame-section">
-                    <div class="memorial-frame simple">
-                        <img src="${randomPhoto}" alt="Memorial Photo" class="frame-photo">
-                    </div>
+                    <img src="${endFrameImg}" alt="Memorial Frame" class="canva-frame">
                 </div>
                 <div class="preview-text-section">
                     <p class="preview-title">Remembering the legacy of</p>
