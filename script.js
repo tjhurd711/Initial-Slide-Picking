@@ -288,8 +288,8 @@ function handleCustomUpload(e) {
         const randomPhoto = samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
         
         // Frame images from Canva
-        const titleFrameImg = 'https://dl.dropboxusercontent.com/scl/fi/6bltuohmbegrk17x7waxm/Untitled-design-3.png?rlkey=43qwhojlami5lh8zarjb0fwsj&st=4guwb1x1&dl=1';
-        const endFrameImg = 'https://dl.dropboxusercontent.com/scl/fi/pmof6kn0cdpc97zxfnqba/Untitled-design-4.png?rlkey=zvnfaik32pdmj17rvk113sh9j&st=4n5nxcbp&dl=1';
+        const titleFrameImg = 'https://dl.dropboxusercontent.com/scl/fi/pmof6kn0cdpc97zxfnqba/Untitled-design-4.png?rlkey=zvnfaik32pdmj17rvk113sh9j&st=4n5nxcbp&dl=1';
+        const endFrameImg = 'https://dl.dropboxusercontent.com/scl/fi/6bltuohmbegrk17x7waxm/Untitled-design-3.png?rlkey=43qwhojlami5lh8zarjb0fwsj&st=4guwb1x1&dl=1';
         
         // Update preview slides
         const previewSlides = document.querySelectorAll('.preview-slide');
