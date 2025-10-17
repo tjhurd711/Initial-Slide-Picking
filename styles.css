@@ -456,7 +456,7 @@ footer {
 /* MASSIVE Canva Frame Images - MUCH BIGGER! */
 .canva-frame {
     width: 100%;
-    max-width: 750px !important;
+    max-width: 850px !important;
     height: auto;
     display: block;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
