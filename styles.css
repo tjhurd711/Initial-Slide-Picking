@@ -428,126 +428,124 @@ footer {
     width: 100%;
 }
 
-.preview-frame-left {
-    flex: 0 0 45%;
+.preview-frame-section {
+    flex: 0 0 40%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-}
-
-.preview-text-right {
-    flex: 1;
-    background: rgba(0, 0, 0, 0.85);
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 30px;
-    text-align: center;
-    color: white;
 }
 
-/* Frame Placeholders */
-.ornate-frame,
-.simple-frame {
-    width: 80%;
-    aspect-ratio: 3/4;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 4px;
+.preview-text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    text-align: left;
+}
+
+/* Memorial Frames with Photos Inside */
+.memorial-frame {
     position: relative;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 3/4;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
 }
 
-.ornate-frame {
-    border: 15px solid white;
+.memorial-frame.ornate {
+    border: 18px solid white;
     box-shadow: 
-        inset 0 0 20px rgba(0, 0, 0, 0.1),
-        0 8px 20px rgba(0, 0, 0, 0.3),
-        0 0 0 2px #ddd,
-        0 0 0 18px white;
+        inset 0 0 0 2px #d4af37,
+        inset 0 0 20px rgba(212, 175, 55, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, #ffffff, #f8f8f8);
 }
 
-.ornate-frame::before {
-    content: '🖼️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 48px;
-    opacity: 0.3;
-}
-
-.simple-frame {
-    border: 20px solid white;
+.memorial-frame.simple {
+    border: 25px solid white;
     box-shadow: 
-        inset 0 0 0 2px #ddd,
-        0 8px 20px rgba(0, 0, 0, 0.3);
+        inset 0 0 0 1px #e0e0e0,
+        0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.simple-frame::before {
-    content: '🖼️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 48px;
-    opacity: 0.3;
+.frame-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* Preview Text Styling */
-.preview-heading {
-    font-family: 'Brush Script MT', cursive, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-    margin-bottom: 10px;
-    color: white;
+/* Preview Text Styling - Direct on Background */
+.preview-title {
+    font-family: 'Brush Script MT', cursive, Georgia, serif;
+    font-size: 32px;
     font-style: italic;
+    color: white;
+    margin: 0 0 10px 0;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.6);
+    font-weight: normal;
 }
 
 .preview-name {
-    font-family: 'Brush Script MT', cursive, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 15px 0;
-    color: white;
+    font-family: 'Brush Script MT', cursive, Georgia, serif;
+    font-size: 48px;
     font-style: italic;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0 20px 0;
     line-height: 1.2;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .preview-dates {
-    font-family: 'Brush Script MT', cursive, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 20px;
+    font-family: 'Brush Script MT', cursive, Georgia, serif;
+    font-size: 26px;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 15px;
+    color: white;
+    margin: 0;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .preview-tagline {
-    font-family: 'Brush Script MT', cursive, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 22px;
+    font-family: 'Brush Script MT', cursive, Georgia, serif;
+    font-size: 28px;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 20px;
-    line-height: 1.6;
+    color: white;
+    margin: 0;
+    line-height: 1.5;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Photo Slide Preview */
+/* Photo Slide Preview - Centered with Border */
 .preview-photo-container {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 50px;
 }
 
 .preview-sample-photo {
-    max-width: 60%;
-    max-height: 70%;
+    max-width: 50%;
+    max-height: 65%;
     object-fit: contain;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Border styles for photo preview */
@@ -569,30 +567,51 @@ footer {
         flex-direction: column;
     }
     
-    .preview-frame-left {
-        flex: 0 0 40%;
-    }
-    
-    .preview-text-right {
-        flex: 1;
+    .preview-frame-section {
+        flex: 0 0 45%;
         padding: 20px;
     }
     
-    .preview-heading {
+    .preview-text-section {
+        flex: 1;
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .memorial-frame {
+        max-width: 200px;
+    }
+    
+    .preview-title {
+        font-size: 22px;
+    }
+    
+    .preview-name {
+        font-size: 32px;
+    }
+    
+    .preview-dates,
+    .preview-tagline {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .memorial-frame {
+        max-width: 150px;
+    }
+    
+    .preview-title {
         font-size: 18px;
     }
     
     .preview-name {
-        font-size: 28px;
+        font-size: 26px;
     }
     
     .preview-dates,
     .preview-tagline {
         font-size: 16px;
-    }
-    
-    .ornate-frame::before,
-    .simple-frame::before {
-        font-size: 32px;
     }
 }
