@@ -227,12 +227,12 @@ function handleCustomUpload(e) {
         const bgUrl = event.target.result;
         
         // Get form values for dynamic preview
-        const deceasedName = document.getElementById('deceasedName').value || '{{NAME}}';
+        const deceasedName = document.getElementById('deceasedName').value || 'Sue J Hurd';
         const birthdate = document.getElementById('birthdate').value;
         const deathdate = document.getElementById('deathdate').value;
         
         // Format dates nicely
-        let datesText = '{{DATES}}';
+        let datesText = 'January 21, 1951 – October 04, 2025';
         if (birthdate && deathdate) {
             const birth = new Date(birthdate);
             const death = new Date(deathdate);
@@ -244,9 +244,9 @@ function handleCustomUpload(e) {
         
         // Get selected border for photo preview
         const borderRadio = document.querySelector('input[name="border"]:checked');
-        const borderClass = borderRadio ? `border-${borderRadio.value}` : '';
+        const borderClass = borderRadio ? `border-${borderRadio.value}` : 'border-white';
         
-        // Sample photos for middle slide
+        // Sample photos for frames and middle slide
         const samplePhotos = [
             'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
             'https://dl.dropboxusercontent.com/scl/fi/8t2slrauqqr8poib5ekbt/DSC_0333.JPG?rlkey=d2v17cupbgk5prodeyftskfdg&st=h6pwi9e9&dl=1',
@@ -257,22 +257,24 @@ function handleCustomUpload(e) {
         // Update preview slides
         const previewSlides = document.querySelectorAll('.preview-slide');
         
-        // Title slide (split layout)
+        // Title slide (frame + text on custom background)
         previewSlides[0].style.backgroundImage = `url(${bgUrl})`;
         previewSlides[0].innerHTML = `
             <div class="preview-split-layout">
-                <div class="preview-frame-left">
-                    <div class="ornate-frame"></div>
+                <div class="preview-frame-section">
+                    <div class="memorial-frame ornate">
+                        <img src="${randomPhoto}" alt="Memorial Photo" class="frame-photo">
+                    </div>
                 </div>
-                <div class="preview-text-right">
-                    <h2 class="preview-heading">In loving memory of</h2>
+                <div class="preview-text-section">
+                    <p class="preview-title">In loving memory of</p>
                     <h1 class="preview-name">${deceasedName}</h1>
                     <p class="preview-dates">${datesText}</p>
                 </div>
             </div>
         `;
         
-        // Photo slide (full background with centered photo)
+        // Photo slide (centered photo with border on custom background)
         previewSlides[1].style.backgroundImage = `url(${bgUrl})`;
         previewSlides[1].innerHTML = `
             <div class="preview-photo-container">
@@ -280,15 +282,17 @@ function handleCustomUpload(e) {
             </div>
         `;
         
-        // End slide (split layout)
+        // End slide (frame + text on custom background)
         previewSlides[2].style.backgroundImage = `url(${bgUrl})`;
         previewSlides[2].innerHTML = `
             <div class="preview-split-layout">
-                <div class="preview-frame-left">
-                    <div class="simple-frame"></div>
+                <div class="preview-frame-section">
+                    <div class="memorial-frame simple">
+                        <img src="${randomPhoto}" alt="Memorial Photo" class="frame-photo">
+                    </div>
                 </div>
-                <div class="preview-text-right">
-                    <h2 class="preview-heading">Remembering the legacy of</h2>
+                <div class="preview-text-section">
+                    <p class="preview-title">Remembering the legacy of</p>
                     <h1 class="preview-name">${deceasedName}</h1>
                     <p class="preview-tagline">Always in our hearts, never forgotten.</p>
                 </div>
@@ -301,6 +305,7 @@ function handleCustomUpload(e) {
 
     hideError();
 }
+
 async function handleSubmit(e) {
     e.preventDefault();
 
