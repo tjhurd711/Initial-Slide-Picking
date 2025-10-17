@@ -187,7 +187,7 @@ function loadTemplates(theme) {
         `;
 
         item.addEventListener('click', () => selectTemplate(item, template));
-        gallery.appendChild(item));
+        gallery.appendChild(item);  // ← FIXED: Removed extra parenthesis
     });
 }
 
