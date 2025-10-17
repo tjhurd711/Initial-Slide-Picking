@@ -324,7 +324,7 @@ function handleCustomUpload(e) {
                 <div class="preview-frame-section">
                     <img src="${endFrameImg}" alt="Memorial Frame" class="canva-frame">
                 </div>
-                <div class="preview-text-section">
+                <div class="preview-text-section preview-text-centered">
                     <p class="preview-title">Remembering the legacy of</p>
                     <h1 class="preview-name">${deceasedName}</h1>
                     <p class="preview-tagline">Always in our hearts, never forgotten.</p>
