@@ -430,7 +430,7 @@ footer {
 }
 
 .preview-frame-section {
-    flex: 0 0 65%;  /* Changed from 65% to 55% - gives text more room */
+    flex: 0 0 60%;  /* Changed from 65% to 55% - gives text more room */
     display: flex;
     align-items: center;
     justify-content: center;
