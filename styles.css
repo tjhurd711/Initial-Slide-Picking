@@ -430,7 +430,7 @@ footer {
 }
 
 .preview-frame-section {
-    flex: 0 0 55%;  /* Changed from 65% to 55% - gives text more room */
+    flex: 0 0 65%;  /* Changed from 65% to 55% - gives text more room */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -443,7 +443,7 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 30px 50px 30px 30px;  /* Added more right padding for breathing room */
+    padding: 30px 80px 30px 20px;  /* Added more right padding for breathing room */
     text-align: left;
 }
 /* Center alignment for end slide */
