@@ -55,6 +55,40 @@ const END_CANDLES = {
 let selectedTheme = null;
 let selectedTemplate = null;
 let customBackgroundFile = null;
+let currentSlideIndex = 0;
+
+// Carousel navigation functions (global scope for onclick handlers)
+window.changeSlide = function(direction) {
+    const slides = document.querySelectorAll('.preview-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    // Remove active class
+    slides[currentSlideIndex].classList.remove('active');
+    dots[currentSlideIndex].classList.remove('active');
+    
+    // Calculate new index
+    currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
+    
+    // Add active class
+    slides[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+};
+
+window.goToSlide = function(index) {
+    const slides = document.querySelectorAll('.preview-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    // Remove active class
+    slides[currentSlideIndex].classList.remove('active');
+    dots[currentSlideIndex].classList.remove('active');
+    
+    // Set new index
+    currentSlideIndex = index;
+    
+    // Add active class
+    slides[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+};
 
 // Parse URL parameters on page load
 window.addEventListener('DOMContentLoaded', () => {
@@ -187,7 +221,7 @@ function loadTemplates(theme) {
         `;
 
         item.addEventListener('click', () => selectTemplate(item, template));
-        gallery.appendChild(item);  // ← FIXED: Removed extra parenthesis
+        gallery.appendChild(item);
     });
 }
 
@@ -221,10 +255,13 @@ function handleCustomUpload(e) {
 
     customBackgroundFile = file;
 
-    // Show preview with realistic slide mockups
+    // Show carousel preview with realistic slide mockups
     const reader = new FileReader();
     reader.onload = function(event) {
         const bgUrl = event.target.result;
+        
+        // Reset to first slide
+        currentSlideIndex = 0;
         
         // Get form values for dynamic preview
         const deceasedName = document.getElementById('deceasedName').value || 'Sue J Hurd';
@@ -241,10 +278,6 @@ function handleCustomUpload(e) {
             const birth = new Date(birthdate);
             datesText = birth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + ' – Present';
         }
-        
-        // Get selected border for photo preview
-        const borderRadio = document.querySelector('input[name="border"]:checked');
-        const borderClass = borderRadio ? `border-${borderRadio.value}` : 'border-white';
         
         // Sample photo for middle slide
         const samplePhotos = [
@@ -276,11 +309,11 @@ function handleCustomUpload(e) {
             </div>
         `;
         
-        // Photo slide (centered photo with border on custom background)
+        // Photo slide (centered photo with NO border on custom background)
         previewSlides[1].style.backgroundImage = `url(${bgUrl})`;
         previewSlides[1].innerHTML = `
             <div class="preview-photo-container">
-                <img src="${randomPhoto}" class="preview-sample-photo ${borderClass}" alt="Sample Photo">
+                <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
             </div>
         `;
         
@@ -437,11 +470,6 @@ function fileToBase64(file) {
 
 async function submitToBackend(formData) {
     // PLACEHOLDER: Replace with your actual API endpoint
-    // This could be:
-    // 1. Zapier webhook
-    // 2. AWS API Gateway
-    // 3. Direct Lambda function URL
-
     console.log('Form data to submit:', formData);
 
     // For now, simulate API call
@@ -450,40 +478,6 @@ async function submitToBackend(formData) {
             resolve({ success: true });
         }, 1000);
     });
-
-    // EXAMPLE: Zapier webhook
-    /*
-    const response = await fetch('YOUR_ZAPIER_WEBHOOK_URL', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    });
-
-    if (!response.ok) {
-        throw new Error('Submission failed');
-    }
-
-    return await response.json();
-    */
-
-    // EXAMPLE: AWS API Gateway
-    /*
-    const response = await fetch('YOUR_API_GATEWAY_URL', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    });
-
-    if (!response.ok) {
-        throw new Error('Submission failed');
-    }
-
-    return await response.json();
-    */
 }
 
 function showError(message) {
