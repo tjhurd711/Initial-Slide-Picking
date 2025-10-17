@@ -447,40 +447,46 @@ footer {
     text-align: left;
 }
 
-/* MASSIVE Canva Frame Images - MUCH BIGGER! */
+/* Center alignment for end slide */
+.preview-text-centered {
+    align-items: center;
+    text-align: center;
+}
+
+/* Bigger Canva Frame Images - 1.5x bigger */
 .canva-frame {
     width: 100%;
-    max-width: 750px !important;
+    max-width: 550px !important;
     height: auto;
     display: block;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
 }
 
-/* Preview Text Styling - MASSIVE TEXT for readability */
+/* Preview Text Styling - MUCH BIGGER for readability */
 .preview-title {
     font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 48px !important;
+    font-size: 28px !important;
     font-style: italic;
     color: white !important;
-    margin: 0 0 12px 0 !important;
+    margin: 0 0 8px 0 !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
     font-weight: normal;
 }
 
 .preview-name {
     font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 68px !important;
+    font-size: 42px !important;
     font-style: italic;
     font-weight: bold;
     color: white !important;
-    margin: 12px 0 18px 0 !important;
+    margin: 8px 0 12px 0 !important;
     line-height: 1.2 !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
 }
 
 .preview-dates {
     font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 40px !important;
+    font-size: 24px !important;
     font-style: italic;
     color: white !important;
     margin: 0 !important;
@@ -489,7 +495,7 @@ footer {
 
 .preview-tagline {
     font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 42px !important;
+    font-size: 26px !important;
     font-style: italic;
     color: white !important;
     margin: 0 !important;
