@@ -1,3 +1,9 @@
+// Memorial Slideshow Customization Form - Main JavaScript
+// Handles form logic, validation, and submission to Zapier
+
+// === ZAPIER WEBHOOK CONFIGURATION ===
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/19825049/um44ula/';
+
 // Template data with all 30 templates
 const TEMPLATES = {
     blue: [
@@ -376,11 +382,11 @@ async function handleSubmit(e) {
         // Prepare submission data
         const formData = await prepareFormData();
 
-        // Submit to backend (placeholder - you'll replace with actual endpoint)
+        // Submit to Zapier webhook
         const response = await submitToBackend(formData);
 
         // Redirect to thank you page
-        window.location.href = `thank-you.html?uid=${formData.uid}`;
+        window.location.href = `thank-you.html?uid=${formData.uid}&name=${encodeURIComponent(formData.deceased_full_name)}`;
     } catch (error) {
         showError('Submission failed. Please try again.');
         console.error('Submission error:', error);
@@ -480,6 +486,7 @@ async function prepareFormData() {
         data.title_background_url = TITLE_CANDLES[selectedTheme];
         data.end_background_url = END_CANDLES[selectedTheme];
         data.custom_background_file = null;
+        data.custom_background_filename = null;
     } else {
         // Convert custom file to base64
         const base64 = await fileToBase64(customBackgroundFile);
@@ -488,6 +495,10 @@ async function prepareFormData() {
         data.theme_color = null;
         data.selected_template = null;
         data.bg_source = null;
+        data.background_template = null;
+        data.background_url = null;
+        data.title_background_url = null;
+        data.end_background_url = null;
     }
 
     return data;
@@ -503,15 +514,33 @@ function fileToBase64(file) {
 }
 
 async function submitToBackend(formData) {
-    // PLACEHOLDER: Replace with your actual API endpoint
-    console.log('Form data to submit:', formData);
-
-    // For now, simulate API call
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({ success: true });
-        }, 1000);
+    console.log('📤 Submitting to Zapier webhook:', ZAPIER_WEBHOOK_URL);
+    console.log('📋 Form data:', {
+        ...formData,
+        custom_background_file: formData.custom_background_file ? `[base64 data: ${formData.custom_background_file.substring(0, 50)}...]` : null
     });
+
+    try {
+        const response = await fetch(ZAPIER_WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Zapier webhook failed with status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('✅ Zapier response:', result);
+        
+        return result;
+    } catch (error) {
+        console.error('❌ Submission error:', error);
+        throw error;
+    }
 }
 
 function showError(message) {
