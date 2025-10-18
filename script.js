@@ -523,10 +523,8 @@ async function submitToBackend(formData) {
     try {
         const response = await fetch(ZAPIER_WEBHOOK_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
             body: JSON.stringify(formData)
+            // Note: No headers! Zapier webhooks handle this automatically
         });
 
         if (!response.ok) {
