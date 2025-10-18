@@ -428,8 +428,20 @@ async function prepareFormData() {
     const urlName = document.getElementById('urlName').value;
     const type = document.getElementById('type').value;
     const email = document.getElementById('email').value;
-    const customerName = document.getElementById('customerName').value;
-    const deceasedName = document.getElementById('deceasedName').value;
+    
+    // Combine customer name
+    const customerFirstName = document.getElementById('customerFirstName').value;
+    const customerLastName = document.getElementById('customerLastName').value;
+    const customerName = `${customerFirstName} ${customerLastName}`;
+    
+    // Combine deceased name
+    const deceasedFirstName = document.getElementById('deceasedFirstName').value;
+    const deceasedMiddleName = document.getElementById('deceasedMiddleName').value;
+    const deceasedLastName = document.getElementById('deceasedLastName').value;
+    const deceasedName = deceasedMiddleName 
+        ? `${deceasedFirstName} ${deceasedMiddleName} ${deceasedLastName}`
+        : `${deceasedFirstName} ${deceasedLastName}`;
+    
     const birthdate = document.getElementById('birthdate').value;
     const deathdate = document.getElementById('deathdate').value;
     const format = document.querySelector('input[name="format"]:checked').value;
@@ -442,7 +454,12 @@ async function prepareFormData() {
         type,
         email,
         customer_name: customerName,
+        customer_first_name: customerFirstName,
+        customer_last_name: customerLastName,
         deceased_full_name: deceasedName,
+        deceased_first_name: deceasedFirstName,
+        deceased_middle_name: deceasedMiddleName,
+        deceased_last_name: deceasedLastName,
         birthdate,
         deathdate,
         format_choice: format,
