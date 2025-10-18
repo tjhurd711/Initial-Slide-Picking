@@ -591,10 +591,18 @@ async function submitToBackend(formData) {
     });
 
     try {
+        // Send as URL-encoded form data for better Zapier parsing
+        const formBody = new URLSearchParams();
+        for (const key in formData) {
+            formBody.append(key, formData[key] || '');
+        }
+        
         const response = await fetch(ZAPIER_WEBHOOK_URL, {
             method: 'POST',
-            body: JSON.stringify(formData)
-            // Note: No headers! Zapier webhooks handle this automatically
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formBody.toString()
         });
 
         if (!response.ok) {
