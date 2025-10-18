@@ -25,31 +25,33 @@
                 <input type="hidden" id="type" name="type">
                 <input type="hidden" id="email" name="email">
 
-                <!-- Customer Name - Split into First and Last -->
+                <!-- Customer Name - Side by side -->
                 <div class="form-group">
-                    <label for="customerFirstName">Your First Name *</label>
-                    <input type="text" id="customerFirstName" name="customerFirstName" required>
+                    <label>Your Name *</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <input type="text" id="customerFirstName" name="customerFirstName" placeholder="First Name" required>
+                        </div>
+                        <div>
+                            <input type="text" id="customerLastName" name="customerLastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Deceased Name - Three across -->
                 <div class="form-group">
-                    <label for="customerLastName">Your Last Name *</label>
-                    <input type="text" id="customerLastName" name="customerLastName" required>
-                </div>
-
-                <!-- Deceased Full Name - Split into First, Middle (optional), Last -->
-                <div class="form-group">
-                    <label for="deceasedFirstName">Deceased Person's First Name *</label>
-                    <input type="text" id="deceasedFirstName" name="deceasedFirstName" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="deceasedMiddleName">Deceased Person's Middle Name (Optional)</label>
-                    <input type="text" id="deceasedMiddleName" name="deceasedMiddleName">
-                </div>
-
-                <div class="form-group">
-                    <label for="deceasedLastName">Deceased Person's Last Name *</label>
-                    <input type="text" id="deceasedLastName" name="deceasedLastName" required>
+                    <label>Deceased Person's Name *</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+                        <div>
+                            <input type="text" id="deceasedFirstName" name="deceasedFirstName" placeholder="First Name" required>
+                        </div>
+                        <div>
+                            <input type="text" id="deceasedMiddleName" name="deceasedMiddleName" placeholder="Middle Name (Optional)">
+                        </div>
+                        <div>
+                            <input type="text" id="deceasedLastName" name="deceasedLastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Birthdate -->
