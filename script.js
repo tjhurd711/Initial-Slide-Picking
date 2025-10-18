@@ -247,6 +247,10 @@ function generateTemplatePreview(template) {
     const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/veiuv1adp575icictjrmj/Your-paragraph-text-1.png?rlkey=w4wrzkn85q290py82r7z3kz7j&st=byhh9k8d&dl=1';
     const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/vym9bqjnb036c17kcijoj/Your-paragraph-text-2.png?rlkey=1bn5we5dnswfal1vpuvpblcsf&st=3gb48nlq&dl=1';
     
+    // Get the candle backgrounds based on selected theme
+    const titleCandleUrl = TITLE_CANDLES[selectedTheme];
+    const endCandleUrl = END_CANDLES[selectedTheme];
+    
     // Sample photo for middle slide
     const samplePhotos = [
         'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
@@ -258,13 +262,13 @@ function generateTemplatePreview(template) {
     // Update preview slides
     const previewSlides = document.querySelectorAll('.preview-slide');
     
-    // Title slide - complete Canva design on template background
-    previewSlides[0].style.backgroundImage = `url(${template.url})`;
+    // Title slide - complete Canva design on CANDLE background
+    previewSlides[0].style.backgroundImage = `url(${titleCandleUrl})`;
     previewSlides[0].innerHTML = `
         <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
     `;
     
-    // Photo slide - sample photo on template background
+    // Photo slide - sample photo on TEMPLATE background
     previewSlides[1].style.backgroundImage = `url(${template.url})`;
     previewSlides[1].innerHTML = `
         <div class="preview-photo-container">
@@ -272,8 +276,8 @@ function generateTemplatePreview(template) {
         </div>
     `;
     
-    // End slide - complete Canva design on template background
-    previewSlides[2].style.backgroundImage = `url(${template.url})`;
+    // End slide - complete Canva design on CANDLE background
+    previewSlides[2].style.backgroundImage = `url(${endCandleUrl})`;
     previewSlides[2].innerHTML = `
         <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
     `;
