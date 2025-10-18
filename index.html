@@ -114,24 +114,26 @@
                         <label for="customBackground">Upload Background Image *</label>
                         <input type="file" id="customBackground" name="customBackground" accept="image/jpeg,image/png,image/jpg">
                         <small>Recommended: 1920x1080 or higher. Max 10MB. JPG or PNG format.</small>
-                        
-                        <!-- Carousel Preview -->
-                        <div id="customPreview" style="display: none;">
-                            <p style="margin-top: 20px; margin-bottom: 10px; font-weight: 600;">Preview (Click arrows to see all 3 slides):</p>
-                            <div class="carousel-preview-container">
-                                <div class="carousel-wrapper">
-                                    <div class="preview-slide active" data-slide="0"></div>
-                                    <div class="preview-slide" data-slide="1"></div>
-                                    <div class="preview-slide" data-slide="2"></div>
-                                    
-                                    <button type="button" class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
-                                    <button type="button" class="carousel-nav next" onclick="changeSlide(1)">›</button>
-                                    
-                                    <div class="carousel-indicators">
-                                        <span class="carousel-dot active" onclick="goToSlide(0)"></span>
-                                        <span class="carousel-dot" onclick="goToSlide(1)"></span>
-                                        <span class="carousel-dot" onclick="goToSlide(2)"></span>
-                                    </div>
+                    </div>
+                </div>
+
+                <!-- Preview Carousel (shown for BOTH templates and custom uploads) -->
+                <div class="form-group">
+                    <div id="previewCarousel" style="display: none;">
+                        <p style="margin-top: 20px; margin-bottom: 10px; font-weight: 600;">Preview (Click arrows to see all 3 slides):</p>
+                        <div class="carousel-preview-container">
+                            <div class="carousel-wrapper">
+                                <div class="preview-slide active" data-slide="0"></div>
+                                <div class="preview-slide" data-slide="1"></div>
+                                <div class="preview-slide" data-slide="2"></div>
+                                
+                                <button type="button" class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
+                                <button type="button" class="carousel-nav next" onclick="changeSlide(1)">›</button>
+                                
+                                <div class="carousel-indicators">
+                                    <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                                    <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                                    <span class="carousel-dot" onclick="goToSlide(2)"></span>
                                 </div>
                             </div>
                         </div>
