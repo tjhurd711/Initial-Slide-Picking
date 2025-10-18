@@ -488,8 +488,11 @@ async function prepareFormData() {
         data.custom_background_file = null;
         data.custom_background_filename = null;
     } else {
-        // Convert custom file to base64
-        const base64 = await fileToBase64(customBackgroundFile);
+        // Convert custom file to base64 with compression
+        console.log('📦 Compressing custom background...');
+        const base64 = await compressImage(customBackgroundFile, 2); // Max 2MB
+        console.log('✅ Compression complete');
+        
         data.custom_background_file = base64;
         data.custom_background_filename = customBackgroundFile.name;
         data.theme_color = null;
@@ -508,6 +511,73 @@ function fileToBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+async function compressImage(file, maxSizeMB = 2) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        
+        reader.onload = (e) => {
+            const img = new Image();
+            
+            img.onload = () => {
+                // Create canvas
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Calculate new dimensions (max 1920px width)
+                let width = img.width;
+                let height = img.height;
+                const maxWidth = 1920;
+                const maxHeight = 1920;
+                
+                if (width > maxWidth || height > maxHeight) {
+                    if (width > height) {
+                        height = (height / width) * maxWidth;
+                        width = maxWidth;
+                    } else {
+                        width = (width / height) * maxHeight;
+                        height = maxHeight;
+                    }
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                
+                // Draw and compress
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                // Start with quality 0.85, reduce if still too large
+                let quality = 0.85;
+                
+                const tryCompress = () => {
+                    canvas.toBlob((blob) => {
+                        const sizeMB = blob.size / (1024 * 1024);
+                        
+                        if (sizeMB <= maxSizeMB || quality <= 0.5) {
+                            // Convert blob to base64
+                            const reader2 = new FileReader();
+                            reader2.onloadend = () => resolve(reader2.result);
+                            reader2.onerror = reject;
+                            reader2.readAsDataURL(blob);
+                        } else {
+                            // Try lower quality
+                            quality -= 0.1;
+                            tryCompress();
+                        }
+                    }, 'image/jpeg', quality);
+                };
+                
+                tryCompress();
+            };
+            
+            img.onerror = reject;
+            img.src = e.target.result;
+        };
+        
         reader.onerror = reject;
         reader.readAsDataURL(file);
     });
