@@ -234,6 +234,52 @@ function selectTemplate(item, template) {
     // Select new template
     item.classList.add('selected');
     selectedTemplate = template;
+    
+    // Show preview for this template
+    generateTemplatePreview(template);
+}
+
+function generateTemplatePreview(template) {
+    // Reset to first slide
+    currentSlideIndex = 0;
+    
+    // Complete slide design images
+    const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/veiuv1adp575icictjrmj/Your-paragraph-text-1.png?rlkey=w4wrzkn85q290py82r7z3kz7j&st=byhh9k8d&dl=1';
+    const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/vym9bqjnb036c17kcijoj/Your-paragraph-text-2.png?rlkey=1bn5we5dnswfal1vpuvpblcsf&st=3gb48nlq&dl=1';
+    
+    // Sample photo for middle slide
+    const samplePhotos = [
+        'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
+        'https://dl.dropboxusercontent.com/scl/fi/8t2slrauqqr8poib5ekbt/DSC_0333.JPG?rlkey=d2v17cupbgk5prodeyftskfdg&st=h6pwi9e9&dl=1',
+        'https://dl.dropboxusercontent.com/scl/fi/7v625luwbb2ch2h5u6zi3/200-s_Eureka-Springs_0002.jpg?rlkey=ff5z6rpteujr71a4r5jvg9b49&st=6zbovd9r&dl=1'
+    ];
+    const randomPhoto = samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
+    
+    // Update preview slides
+    const previewSlides = document.querySelectorAll('.preview-slide');
+    
+    // Title slide - complete Canva design on template background
+    previewSlides[0].style.backgroundImage = `url(${template.url})`;
+    previewSlides[0].innerHTML = `
+        <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
+    `;
+    
+    // Photo slide - sample photo on template background
+    previewSlides[1].style.backgroundImage = `url(${template.url})`;
+    previewSlides[1].innerHTML = `
+        <div class="preview-photo-container">
+            <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
+        </div>
+    `;
+    
+    // End slide - complete Canva design on template background
+    previewSlides[2].style.backgroundImage = `url(${template.url})`;
+    previewSlides[2].innerHTML = `
+        <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
+    `;
+    
+    // Show preview
+    document.getElementById('previewCarousel').style.display = 'block';
 }
 
 function handleCustomUpload(e) {
@@ -262,22 +308,6 @@ function handleCustomUpload(e) {
         
         // Reset to first slide
         currentSlideIndex = 0;
-        
-        // Get form values for dynamic preview
-        const deceasedName = document.getElementById('deceasedName').value || 'Sue J Hurd';
-        const birthdate = document.getElementById('birthdate').value;
-        const deathdate = document.getElementById('deathdate').value;
-        
-        // Format dates nicely
-        let datesText = 'January 21, 1951 – October 04, 2025';
-        if (birthdate && deathdate) {
-            const birth = new Date(birthdate);
-            const death = new Date(deathdate);
-            datesText = `${birth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} – ${death.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
-        } else if (birthdate) {
-            const birth = new Date(birthdate);
-            datesText = birth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + ' – Present';
-        }
         
         // Sample photo for middle slide
         const samplePhotos = [
@@ -314,7 +344,8 @@ function handleCustomUpload(e) {
             <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
         `;
         
-        document.getElementById('customPreview').style.display = 'block';
+        // Show preview
+        document.getElementById('previewCarousel').style.display = 'block';
     };
     reader.readAsDataURL(file);
 
