@@ -25,16 +25,31 @@
                 <input type="hidden" id="type" name="type">
                 <input type="hidden" id="email" name="email">
 
-                <!-- Customer Name -->
+                <!-- Customer Name - Split into First and Last -->
                 <div class="form-group">
-                    <label for="customerName">Your Name *</label>
-                    <input type="text" id="customerName" name="customerName" required>
+                    <label for="customerFirstName">Your First Name *</label>
+                    <input type="text" id="customerFirstName" name="customerFirstName" required>
                 </div>
 
-                <!-- Deceased Full Name -->
                 <div class="form-group">
-                    <label for="deceasedName">Deceased Person's Full Name (First Middle Last) *</label>
-                    <input type="text" id="deceasedName" name="deceasedName" required>
+                    <label for="customerLastName">Your Last Name *</label>
+                    <input type="text" id="customerLastName" name="customerLastName" required>
+                </div>
+
+                <!-- Deceased Full Name - Split into First, Middle (optional), Last -->
+                <div class="form-group">
+                    <label for="deceasedFirstName">Deceased Person's First Name *</label>
+                    <input type="text" id="deceasedFirstName" name="deceasedFirstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="deceasedMiddleName">Deceased Person's Middle Name (Optional)</label>
+                    <input type="text" id="deceasedMiddleName" name="deceasedMiddleName">
+                </div>
+
+                <div class="form-group">
+                    <label for="deceasedLastName">Deceased Person's Last Name *</label>
+                    <input type="text" id="deceasedLastName" name="deceasedLastName" required>
                 </div>
 
                 <!-- Birthdate -->
