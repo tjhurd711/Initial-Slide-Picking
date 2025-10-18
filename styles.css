@@ -292,7 +292,7 @@ h1 {
     z-index: 5;
 }
 
-.border-option input[type="radio"]:checked + img + .checkmark {
+.border-option input[type="radio"]:checked ~ .checkmark {
     display: flex;
 }
 
