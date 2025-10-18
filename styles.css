@@ -422,87 +422,6 @@ footer {
     transform: scale(1.2);
 }
 
-/* Split Layout (Title & End Slides) */
-.preview-split-layout {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
-.preview-frame-section {
-    flex: 0 0 60%;  /* Changed from 65% to 55% - gives text more room */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.preview-text-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 30px 80px 30px 20px;  /* Added more right padding for breathing room */
-    text-align: left;
-}
-/* Center alignment for end slide */
-.preview-text-centered {
-    align-items: center;
-    text-align: center;
-}
-
-/* MASSIVE Canva Frame Images - MUCH BIGGER! */
-.canva-frame {
-    width: 100%;
-    max-width: 1100px !important;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
-    margin-left: -50px;  /* Moves frame 50px to the left */
-}
-
-/* Preview Text Styling - Smaller fonts with tighter spacing */
-.preview-title {
-    font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 38px !important;  /* Reduced from 48px */
-    font-style: italic;
-    color: white !important;
-    margin: 0 0 5px 0 !important;  /* Reduced from 12px to 5px */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-    font-weight: normal;
-}
-
-.preview-name {
-    font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 55px !important;  /* Reduced from 68px */
-    font-style: italic;
-    font-weight: bold;
-    color: white !important;
-    margin: 5px 0 8px 0 !important;  /* Tighter: was 12px 0 18px 0 */
-    line-height: 1.0 !important;  /* Tighter: was 1.2 */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-}
-
-.preview-dates {
-    font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 32px !important;  /* Reduced from 40px */
-    font-style: italic;
-    color: white !important;
-    margin: 0 !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-}
-
-.preview-tagline {
-    font-family: 'Brush Script MT', cursive, Georgia, serif !important;
-    font-size: 34px !important;  /* Reduced from 42px */
-    font-style: italic;
-    color: white !important;
-    margin: 0 !important;
-    line-height: 1.3 !important;  /* Slightly tighter: was 1.5 */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-}
-
 /* Photo Slide Preview - Clean, no border */
 .preview-photo-container {
     height: 100%;
@@ -571,61 +490,11 @@ footer {
     .carousel-nav.next {
         right: 10px;
     }
-
-    .preview-split-layout {
-        flex-direction: column;
-    }
-    
-    .preview-frame-section {
-        flex: 0 0 50%;
-        padding: 15px;
-    }
-    
-    .preview-text-section {
-        flex: 1;
-        padding: 20px;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .canva-frame {
-        max-width: 400px !important;
-    }
-    
-    .preview-title {
-        font-size: 24px !important;
-    }
-    
-    .preview-name {
-        font-size: 36px !important;
-    }
-    
-    .preview-dates,
-    .preview-tagline {
-        font-size: 20px !important;
-    }
 }
 
 @media (max-width: 480px) {
     .template-gallery {
         grid-template-columns: 1fr;
-    }
-
-    .canva-frame {
-        max-width: 300px !important;
-    }
-    
-    .preview-title {
-        font-size: 20px !important;
-    }
-    
-    .preview-name {
-        font-size: 30px !important;
-    }
-    
-    .preview-dates,
-    .preview-tagline {
-        font-size: 18px !important;
     }
 
     .carousel-nav {
