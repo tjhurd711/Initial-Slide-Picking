@@ -490,11 +490,8 @@ async function prepareFormData() {
     } else {
         // Just use the actual file - no base64 conversion needed
         console.log('📦 Preparing custom background file...');
-    
+
         data.custom_background_file = customBackgroundFile; // Actual File object
-        data.custom_background_filename = customBackgroundFile.name;
-        
-        data.custom_background_file = base64;
         data.custom_background_filename = customBackgroundFile.name;
         data.theme_color = null;
         data.selected_template = null;
@@ -503,7 +500,7 @@ async function prepareFormData() {
         data.background_url = null;
         data.title_background_url = null;
         data.end_background_url = null;
-    }
+     }
 
     return data;
 }
