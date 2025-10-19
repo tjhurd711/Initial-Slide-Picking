@@ -506,31 +506,61 @@ async function prepareFormData() {
 }
 
 async function submitToBackend(formData) {
-    console.log('📤 Submitting to Zapier webhook:', ZAPIER_WEBHOOK_URL);
-    console.log('📋 Form data:', {
-        ...formData,
-        custom_background_file: formData.custom_background_file ? `[File: ${formData.custom_background_file.name}]` : null
-    });
-
+    console.log('📤 Submitting to backend');
+    
     try {
-        // Use FormData to send actual file (not URL-encoded)
-        const formBody = new FormData();
-        for (const key in formData) {
-            if (formData[key] !== null && formData[key] !== undefined) {
-                formBody.append(key, formData[key]);
+        // If custom background, upload to Dropbox first
+        if (formData.background_type === 'custom' && formData.custom_background_file) {
+            console.log('📦 Uploading custom background to Dropbox...');
+            
+            const dropboxPath = `/custom_backgrounds/${formData.uid}/custom_bg_${formData.uid}.jpg`;
+            
+            // Get Dropbox access token using refresh token
+            const tokenResponse = await fetch('https://api.dropbox.com/oauth2/token', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: `grant_type=refresh_token&refresh_token=XMsyY4EhACoAAAAAAAAAAYFyGD6-Q89Uxb9weu172SRXCtjYpmr-ab70WUQ4gKIg&client_id=jh1j38ik7vnso5y&client_secret=5qbw5lcm2w6nmvx`
+            });
+            
+            const tokenData = await tokenResponse.json();
+            const accessToken = tokenData.access_token;
+            
+            // Upload file to Dropbox
+            const uploadResponse = await fetch('https://content.dropboxapi.com/2/files/upload', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/octet-stream',
+                    'Dropbox-API-Arg': JSON.stringify({
+                        path: dropboxPath,
+                        mode: 'overwrite'
+                    })
+                },
+                body: formData.custom_background_file
+            });
+            
+            if (!uploadResponse.ok) {
+                throw new Error('Dropbox upload failed');
             }
+            
+            console.log('✅ Uploaded to Dropbox:', dropboxPath);
+            
+            // Remove file from formData, add Dropbox path
+            delete formData.custom_background_file;
+            formData.custom_background_dropbox_path = dropboxPath;
         }
         
+        // Send metadata to Zapier (JSON only, no file)
         const response = await fetch(ZAPIER_WEBHOOK_URL, {
             method: 'POST',
-            // Don't set Content-Type header - let browser set it for multipart/form-data
-            body: formBody
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
         });
-
+        
         if (!response.ok) {
             throw new Error(`Zapier webhook failed with status: ${response.status}`);
         }
-
+        
         const result = await response.json();
         console.log('✅ Zapier response:', result);
         
