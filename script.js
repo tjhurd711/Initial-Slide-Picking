@@ -446,23 +446,7 @@ function validateForm() {
     
     // File_Only orders don't need background/border/format validation
     if (type && type.toLowerCase().includes('file')) {
-        // Check customer name
-        const customerFirstName = document.getElementById('customerFirstName').value;
-        const customerLastName = document.getElementById('customerLastName').value;
-        
-        if (!customerFirstName || !customerLastName) {
-            return { valid: false, message: 'Please enter your name' };
-        }
-        
-        // Check deceased name
-        const deceasedFirstName = document.getElementById('deceasedFirstName').value;
-        const deceasedLastName = document.getElementById('deceasedLastName').value;
-        
-        if (!deceasedFirstName || !deceasedLastName) {
-            return { valid: false, message: 'Please enter the deceased person\'s name' };
-        }
-        
-        // Check dates
+        // Just check that dates are filled
         const birthdate = document.getElementById('birthdate').value;
         const deathdate = document.getElementById('deathdate').value;
         
