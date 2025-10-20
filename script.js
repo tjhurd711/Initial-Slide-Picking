@@ -96,7 +96,6 @@ window.goToSlide = function(index) {
     dots[currentSlideIndex].classList.add('active');
 };
 
-// Parse URL parameters on page load
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const uid = urlParams.get('uid');
@@ -110,13 +109,17 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('type').value = type || '';
     document.getElementById('email').value = email || '';
 
+    // ✅ ALWAYS attach submit listener regardless of order type
+    const form = document.getElementById('slideshowForm');
+    form.addEventListener('submit', handleSubmit);
+
     // Check if File_Only type - show simplified form
     if (type && type.toLowerCase().includes('file')) {
         showFileOnlyForm();
         return;
     }
 
-    // Initialize form handlers
+    // Initialize form handlers (for slideshow orders only)
     initializeForm();
 });
 
@@ -143,10 +146,6 @@ function initializeForm() {
     // Custom upload
     const customUpload = document.getElementById('customBackground');
     customUpload.addEventListener('change', handleCustomUpload);
-
-    // Form submission
-    const form = document.getElementById('slideshowForm');
-    form.addEventListener('submit', handleSubmit);
 }
 
 function showFileOnlyForm() {
