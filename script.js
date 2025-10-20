@@ -110,9 +110,9 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('type').value = type || '';
     document.getElementById('email').value = email || '';
 
-    // Check if File_Only type - redirect to thank you page
+    // Check if File_Only type - show simplified form
     if (type && type.toLowerCase().includes('file')) {
-        window.location.href = 'thank-you.html?type=file_only';
+        showFileOnlyForm();
         return;
     }
 
@@ -147,6 +147,49 @@ function initializeForm() {
     // Form submission
     const form = document.getElementById('slideshowForm');
     form.addEventListener('submit', handleSubmit);
+}
+
+function showFileOnlyForm() {
+    console.log('File_Only order detected - showing simplified form');
+    
+    // Hide all the slideshow customization sections
+    const backgroundSection = document.getElementById('backgroundSection');
+    const borderSection = document.getElementById('borderSection');
+    const formatSection = document.getElementById('formatSection');
+    
+    if (backgroundSection) backgroundSection.style.display = 'none';
+    if (borderSection) borderSection.style.display = 'none';
+    if (formatSection) formatSection.style.display = 'none';
+    
+    // Update page title
+    const pageTitle = document.querySelector('h1');
+    if (pageTitle) {
+        pageTitle.textContent = 'Complete Your File Organization Order';
+    }
+    
+    // Update intro text
+    const introText = document.querySelector('.intro-text');
+    if (introText) {
+        introText.textContent = 'Please provide the following information to help us organize your photos chronologically.';
+    }
+    
+    // Make background/border/format fields not required
+    document.querySelectorAll('input[name="backgroundType"]').forEach(input => {
+        input.removeAttribute('required');
+    });
+    document.querySelectorAll('input[name="border"]').forEach(input => {
+        input.removeAttribute('required');
+    });
+    document.querySelectorAll('input[name="format"]').forEach(input => {
+        input.removeAttribute('required');
+    });
+    
+    // Update submit button text
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) {
+        const btnText = submitBtn.querySelector('.btn-text');
+        if (btnText) btnText.textContent = 'Complete Order';
+    }
 }
 
 function calculateAge() {
@@ -399,7 +442,25 @@ async function handleSubmit(e) {
 }
 
 function validateForm() {
-    // Check background selection
+    const type = document.getElementById('type').value;
+    
+    // File_Only orders don't need background/border/format validation
+    if (type && type.toLowerCase().includes('file')) {
+        // Just check that dates are filled
+        const birthdate = document.getElementById('birthdate').value;
+        const deathdate = document.getElementById('deathdate').value;
+        
+        if (!birthdate) {
+            return { valid: false, message: 'Please enter the birthdate' };
+        }
+        if (!deathdate) {
+            return { valid: false, message: 'Please enter the date of passing' };
+        }
+        
+        return { valid: true };
+    }
+    
+    // Original validation for slideshow orders
     const backgroundType = document.querySelector('input[name="backgroundType"]:checked');
     if (!backgroundType) {
         return { valid: false, message: 'Please select a background option' };
@@ -454,9 +515,6 @@ async function prepareFormData() {
     
     const birthdate = document.getElementById('birthdate').value;
     const deathdate = document.getElementById('deathdate').value;
-    const format = document.querySelector('input[name="format"]:checked').value;
-    const backgroundType = document.querySelector('input[name="backgroundType"]:checked').value;
-    const border = document.querySelector('input[name="border"]:checked').value;
 
     const data = {
         uid,
@@ -471,36 +529,41 @@ async function prepareFormData() {
         deceased_middle_name: deceasedMiddleName,
         deceased_last_name: deceasedLastName,
         birthdate,
-        deathdate,
-        format_choice: format,
-        background_type: backgroundType,
-        border_color: border
+        deathdate
     };
 
-    if (backgroundType === 'template') {
-        data.theme_color = selectedTheme;
-        data.selected_template = selectedTemplate.id;
-        data.bg_source = selectedTemplate.url;
-        data.background_template = selectedTemplate.id;
-        data.background_url = selectedTemplate.url;
-        data.title_background_url = TITLE_CANDLES[selectedTheme];
-        data.end_background_url = END_CANDLES[selectedTheme];
-        data.custom_background_file = null;
-        data.custom_background_filename = null;
-    } else {
-        // Just use the actual file - no base64 conversion needed
-        console.log('📦 Preparing custom background file...');
+    // Only add slideshow fields if NOT File_Only
+    if (!type || !type.toLowerCase().includes('file')) {
+        const format = document.querySelector('input[name="format"]:checked').value;
+        const backgroundType = document.querySelector('input[name="backgroundType"]:checked').value;
+        const border = document.querySelector('input[name="border"]:checked').value;
 
-        data.custom_background_file = customBackgroundFile; // Actual File object
-        data.custom_background_filename = customBackgroundFile.name;
-        data.theme_color = null;
-        data.selected_template = null;
-        data.bg_source = null;
-        data.background_template = null;
-        data.background_url = null;
-        data.title_background_url = null;
-        data.end_background_url = null;
-     }
+        data.format_choice = format;
+        data.background_type = backgroundType;
+        data.border_color = border;
+
+        if (backgroundType === 'template') {
+            data.theme_color = selectedTheme;
+            data.selected_template = selectedTemplate.id;
+            data.bg_source = selectedTemplate.url;
+            data.background_template = selectedTemplate.id;
+            data.background_url = selectedTemplate.url;
+            data.title_background_url = TITLE_CANDLES[selectedTheme];
+            data.end_background_url = END_CANDLES[selectedTheme];
+            data.custom_background_file = null;
+            data.custom_background_filename = null;
+        } else {
+            data.custom_background_file = customBackgroundFile;
+            data.custom_background_filename = customBackgroundFile.name;
+            data.theme_color = null;
+            data.selected_template = null;
+            data.bg_source = null;
+            data.background_template = null;
+            data.background_url = null;
+            data.title_background_url = null;
+            data.end_background_url = null;
+        }
+    }
 
     return data;
 }
