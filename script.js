@@ -4,6 +4,13 @@
 // === ZAPIER WEBHOOK CONFIGURATION ===
 const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/19825049/um44ula/';
 
+// Set max date to today for death date field
+document.addEventListener('DOMContentLoaded', function() {
+    const deathdateInput = document.getElementById('deathdate');
+    const today = new Date().toISOString().split('T')[0];
+    deathdateInput.setAttribute('max', today);
+});
+
 // Template data with all 30 templates
 const TEMPLATES = {
     blue: [
