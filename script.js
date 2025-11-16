@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     deathdateInput.setAttribute('max', today);
 });
 
-// Template data with all 30 templates
+// Template data with all themes including Vibrant (47 templates)
 const TEMPLATES = {
     blue: [
         { id: 'beach_blue', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/dj5mzvmg8376o423d27uq/BeachP-Blue.jpg?rlkey=lg0fbwx7xj215eclg1znu1jxd&st=ogkcpetm' },
@@ -48,6 +48,55 @@ const TEMPLATES = {
         { id: 'mountain_view_multi', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/vxhrw09arznpqxft10w1h/Mountain-View-MultiColor.jpg?rlkey=6y84fz35bkwo0vil0jnb987hi&st=elnbavjh' },
         { id: 'us_flag_multi', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/2wif65w9qqetrb98lbkt0/USFlag2-MultiColor.jpg?rlkey=ekkfqfvg1rk6qet57g7b9tbe7&st=oefqy66a' },
         { id: 'wild_flowers_multi', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/jxds1jv1q2807hsfa54kd/Wild-Flowers-MultiColor.jpg?rlkey=pdz2gbvi962whdne2rc3ri7uk&st=m7qntt53' }
+    ],
+    vibrant: [
+        { id: 'autumn_vibrant', name: 'Autumn', url: 'https://dl.dropboxusercontent.com/scl/fi/72xy7ynll2m4snbm73o82/autumn-9251331_1280.jpg?rlkey=7vb1pp7sa363brvxg7cf2tdto&st=257y3ono&dl=1' },
+        { id: 'sand_heart_vibrant', name: 'Sand Heart', url: 'https://dl.dropboxusercontent.com/scl/fi/ecaowe4p6t8rmc2p6nvfc/background-2349_1280.jpg?rlkey=35isum7v84cb38v53l1x9do5q&st=lwdfn7bk&dl=1' },
+        { id: 'river_vibrant', name: 'River', url: 'https://dl.dropboxusercontent.com/scl/fi/ygzi5izm02gw1rjhiuxf8/lake-1679708_1280.jpg?rlkey=8j8t2v15vut2was7gy78ntp5v&st=5e1iv29q&dl=1' },
+        { id: 'field_cross_vibrant', name: 'Field Cross', url: 'https://dl.dropboxusercontent.com/scl/fi/qgk2276fw1lpktk7wtf77/tree-6890174_1280.jpg?rlkey=dl3798ymp66j5ns8wr25itk96&st=rotvhz2y&dl=1' },
+        { id: 'water_reflection_vibrant', name: 'Water Reflection', url: 'https://dl.dropboxusercontent.com/scl/fi/liyg3wafyffs8ssuazyfs/lago-di-limides-3025780_1280.jpg?rlkey=3qkzrsb36yhyb27ly8pz1f0fl&st=juwmunhs&dl=1' },
+        { id: 'waterfall_vibrant', name: 'Waterfall', url: 'https://dl.dropboxusercontent.com/scl/fi/eblpmulbgb0p4q646tqwi/seljalandsfoss-1751463_1280.jpg?rlkey=9aco3d6b2g6hkdm8hzccd6996&st=y5dt2ewt&dl=1' },
+        { id: 'golf_coast_vibrant', name: 'Golf Coast', url: 'https://dl.dropboxusercontent.com/scl/fi/ct7dnfs8yxau11xdp0731/sport-4842116_1280.jpg?rlkey=dapns12o5y5y6spb0hjrk94w8&st=kohvz1q2&dl=1' },
+        { id: 'golf_woods_vibrant', name: 'Golf Woods', url: 'https://dl.dropboxusercontent.com/scl/fi/51tfg8r3w6k6gpwn2y3we/labor-day-2722962_1280.jpg?rlkey=arpmay8t8pkv8r1lzrqbrew9e&st=0g96yplo&dl=1' },
+        { id: 'mountain_top_vibrant', name: 'Mountain Top', url: 'https://dl.dropboxusercontent.com/scl/fi/fkl3x71b50lldvl8q61zw/mountains-3778244_1280.jpg?rlkey=s52wq803tqlswd5nf25mzw5j9&st=zfnsekkq&dl=1' },
+        { id: 'winter_vibrant', name: 'Winter', url: 'https://dl.dropboxusercontent.com/scl/fi/s3080b6u0i9hj4ax8tnie/winter-landscape-4532412_1280.jpg?rlkey=2wtfy34mnnahepblqy6fz78bm&st=517ppqoi&dl=1' },
+        { id: 'america_agriculture_vibrant', name: 'America Agriculture', url: 'https://dl.dropboxusercontent.com/scl/fi/g87qwigh0zfvixw9cc73l/agriculture-1835918_1280.jpg?rlkey=ozx8x5q59ukbdjy8f1g2fn612&st=9pfoklel&dl=1' },
+        { id: 'rainbow_reflection_vibrant', name: 'Rainbow Reflection', url: 'https://dl.dropboxusercontent.com/scl/fi/p3hdl3uq8ayxcebuwl4z9/rainbow-675832_1280.jpg?rlkey=gnxcxuy6ar0qwuperkp1ejogv&st=ff0ahsk5&dl=1' },
+        { id: 'pink_flowers_vibrant', name: 'Pink Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/umd2bgsw17yzwwj65m858/flower-3219718_1280.jpg?rlkey=64632ci45stnobgrxu3xbiceh&st=y8g56dzs&dl=1' },
+        { id: 'flower_sunset_vibrant', name: 'Flower Sunset', url: 'https://dl.dropboxusercontent.com/scl/fi/x6iv9nlkfwpuavbbqom9y/sunset-815270_1280-1.jpg?rlkey=2bp2taall72hx0ipbfxas3ak0&st=twg9wm5p&dl=1' },
+        { id: 'beach_sunrise_vibrant', name: 'Beach Sunrise', url: 'https://dl.dropboxusercontent.com/scl/fi/knc8gvksvfj027i3p5dqj/beach-1852945_1280.jpg?rlkey=zmatvobxkob2etq0ri9qil1jj&st=9np6utc1&dl=1' },
+        { id: 'farm_vibrant', name: 'Farm', url: 'https://dl.dropboxusercontent.com/scl/fi/ew820xe20pls3jvgm2ak4/farm-3455131_1280.jpg?rlkey=1vcslacgv158liyqtc041ec0s&st=w7jgbpy2&dl=1' },
+        { id: 'lighthouse_vibrant', name: 'Lighthouse', url: 'https://dl.dropboxusercontent.com/scl/fi/8wo3zllldsdjs3z32e38u/santa-cruz-2287588-1280-1.jpg?rlkey=fggteaashnwxzqpl0jsq3lbu9&st=lsraf544&dl=1' },
+        { id: 'butterfly_vibrant', name: 'Butterfly', url: 'https://dl.dropboxusercontent.com/scl/fi/knnaox65mxi48kayi9p83/butterfly-2169269_1280.jpg?rlkey=3tc60xm2q72yfda0cn069y4fa&st=ub1mf2lj&dl=1' },
+        { id: 'rainbow_waterfall_vibrant', name: 'Rainbow Waterfall', url: 'https://dl.dropboxusercontent.com/scl/fi/wgl6m5wt7pfv4mkfk33nz/hill-2601798_1280-1.jpg?rlkey=sf8yo4y75euxx3ue7ibttt63o&st=bajw8juu&dl=1' },
+        { id: 'above_clouds_vibrant', name: 'Above the Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/okf9cnzx6dd25rz0zphzt/clouds-on-the-world-2004459_1280-1.jpg?rlkey=ncbiyi1hk5nzitsk518jifgzf&st=f9uqrwr2&dl=1' },
+        { id: 'cardinal_vibrant', name: 'Cardinal', url: 'https://dl.dropboxusercontent.com/scl/fi/11c32t53azibevdilpu8t/cardinal-1884283_1280.jpg?rlkey=lxm3wghvbeh8326vyvkx8uw2g&st=772p1etu&dl=1' },
+        { id: 'american_flag_vibrant', name: 'American Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/hpaf4uk37uwhllel5mssk/american-flag-5143161_1280.jpg?rlkey=eakgs2yl7xjdcw0kolhiotx1k&st=ujub593q&dl=1' },
+        { id: 'horse_vibrant', name: 'Horse', url: 'https://dl.dropboxusercontent.com/scl/fi/ok670w7ailumzno2bhcug/horse-6616504_1280.jpg?rlkey=gahdb1v9g3nf7d3llbs8yj3y0&st=wtud7x70&dl=1' },
+        { id: 'sea_vibrant', name: 'Sea', url: 'https://dl.dropboxusercontent.com/scl/fi/51p0v8qljdisus5x3911i/sea-7598498_1280.jpg?rlkey=apgnxk3x33vi8oonbqor3dj0u&st=6k6ab8cq&dl=1' },
+        { id: 'ocean_sunset_vibrant', name: 'Ocean Sunset', url: 'https://dl.dropboxusercontent.com/scl/fi/zlxh84afz7wjd5fboupj6/dickenson-bay-4961295_1280.jpg?rlkey=2tyxvmeh3qolet0x1zqxa4fj5&st=sals7ijs&dl=1' },
+        { id: 'sky_blue_flowers_vibrant', name: 'Sky Blue Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/n3tapdvuqn90sj2cae9mt/lone-5265194_1280.jpg?rlkey=hm789aq2g8a19cx93f0uqgpcu&st=guy6skku&dl=1' },
+        { id: 'salmon_flowers_vibrant', name: 'Salmon Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/ym8o3giqz3ylou1ne9l53/rose-572757_1280.jpg?rlkey=hrzjb9u2s6foy02skoqtehs67&st=6ch3tyyf&dl=1' },
+        { id: 'row_boat_vibrant', name: 'Row Boat', url: 'https://dl.dropboxusercontent.com/scl/fi/7el39y9e5fly4ktwf7kzq/beach-1845810_1280-1.jpg?rlkey=sobp8ojglyl26cr4iltbnmyie&st=sergdgps&dl=1' },
+        { id: 'light_purple_flowers_vibrant', name: 'Light Purple Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/nltasr5d9dyc6uptn37yc/autumn-7504819_1280.jpg?rlkey=dcsabnra2ubh3lyz6jz4662jb&st=c7ymeo84&dl=1' },
+        { id: 'rose_vibrant', name: 'Rose', url: 'https://dl.dropboxusercontent.com/scl/fi/cm0fvz8kxdyka2nej0qs4/red-rose-4205759_1280.jpg?rlkey=zsw4zeqjdk555dv0g29caryct&st=npddwjon&dl=1' },
+        { id: 'flower_winter_vibrant', name: 'Flower Winter', url: 'https://dl.dropboxusercontent.com/scl/fi/1i6watbobdb51ynv93xdi/ai-generated-8405991_1280.jpg?rlkey=k6jvnyk4nivuuz25hjb2m92mi&st=1i9mj3uh&dl=1' },
+        { id: 'pebbles_vibrant', name: 'Pebbles', url: 'https://dl.dropboxusercontent.com/scl/fi/8eo4tjelc7d3lztxaq8qi/ai-generated-8986875_1280.jpg?rlkey=68yxi05cwsuuwvztqhe3fkotb&st=ocdzcqpl&dl=1' },
+        { id: 'purple_flowers_vibrant', name: 'Purple Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/7r7nz7sej3b5ljpv9g5ba/flowers-402094_1280.jpg?rlkey=hop6zu48bidraf47c6qfzkdv8&st=jib80f4l&dl=1' },
+        { id: 'white_flowers_vibrant', name: 'White Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/05r6t8fwg108na0vlyzs2/flowers-4508568_1280.jpg?rlkey=tcz5ju65y4ofhia0wetv854zs&st=knk01j90&dl=1' },
+        { id: 'heaven_vibrant', name: 'Heaven', url: 'https://dl.dropboxusercontent.com/scl/fi/9l7v5hoknlfnqgl351l6z/heaven-3395811_1280.jpg?rlkey=pqcnuhgkfbwy417z6zhf2h14a&st=r7h50p4k&dl=1' },
+        { id: 'dandelion_vibrant', name: 'Dandelion', url: 'https://dl.dropboxusercontent.com/scl/fi/vlipy4syl2629ezp6c3br/dandelion-5030059_1280.jpg?rlkey=t8oekc1iroefbo8d56n01u54t&st=czzeomv3&dl=1' },
+        { id: 'heart_rock_vibrant', name: 'Heart Rock', url: 'https://dl.dropboxusercontent.com/scl/fi/i8afcxrp6011lgmgrhyw0/valentines-day-9332179_1280.jpg?rlkey=hs60drus484w25fpapbjbvbc5&st=cg0nax5x&dl=1' },
+        { id: 'blue_flowers_vibrant', name: 'Blue Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/o5e5ux8j7kaxbhw4tdak7/snow-shine-4053584_1280.jpg?rlkey=th1hp5rcstmgnnbv3d5qbn9mt&st=20wtf9s7&dl=1' },
+        { id: 'cross_flower_vibrant', name: 'Cross Flower', url: 'https://dl.dropboxusercontent.com/scl/fi/aptbz34o8958flfzl14o1/cross-3768890_1280.jpg?rlkey=6f0d42cae36tgx9ham9iltbf1&st=mcioixzn&dl=1' },
+        { id: 'heart_creek_vibrant', name: 'Heart Creek', url: 'https://dl.dropboxusercontent.com/scl/fi/ui7lsh3q5vfk4ytlm6czy/ai-generated-9396110_1280-1.jpg?rlkey=lbc8p3a0ncpu9xvb15b8d1lpd&st=awvck9kb&dl=1' },
+        { id: 'bw_rose_vibrant', name: 'Black and White Rose', url: 'https://dl.dropboxusercontent.com/scl/fi/xy29fmfq987e1j2uzcfko/grief-1665772_1280.jpg?rlkey=99gcesplecf743bz9juohefbm&st=poucq7lx&dl=1' },
+        { id: 'dove_vibrant', name: 'Dove', url: 'https://dl.dropboxusercontent.com/scl/fi/4m2vhtx2br5uwserry65y/dove-3426159_1280.jpg?rlkey=imavrsvac0wdeiag7whx1w7yy&st=3ozp50pk&dl=1' },
+        { id: 'peach_blossums_vibrant', name: 'Peach Blossums', url: 'https://dl.dropboxusercontent.com/scl/fi/qgudit5a12dx4mp00ntig/peach-tree-4087197_1280.jpg?rlkey=wfi71dthx25600850ffxx7gu9&st=wwu5m93g&dl=1' },
+        { id: 'moon_coast_vibrant', name: 'Moon Coast', url: 'https://dl.dropboxusercontent.com/scl/fi/cp5acha4hm4qzfwhbcszu/beach-8109200_1280.jpg?rlkey=d15ch3uolo3fhwjt0eg0plin3&st=8hytziay&dl=1' },
+        { id: 'love_vibrant', name: 'Love', url: 'https://dl.dropboxusercontent.com/scl/fi/gk2bgt4wqo5w9kl3veedl/flower-3388626_1280.jpg?rlkey=xaw6dgkb220q5tr7nbphya56s&st=sb0aqwhe&dl=1' },
+        { id: 'cross_horizon_vibrant', name: 'Cross Horizon', url: 'https://dl.dropboxusercontent.com/scl/fi/d9c2v6m6svz0cvphzo164/cross-4062996_1280.jpg?rlkey=on4p9bisfgs1zsxs36z1z1wh0&st=yylcg7mv&dl=1' },
+        { id: 'rainbow_vibrant', name: 'Rainbow', url: 'https://dl.dropboxusercontent.com/scl/fi/2wk9tfbc7hfe687tovhlq/sunset-2593892_1280.jpg?rlkey=kgzhigax5djqsx1nmjv12d4hq&st=k84gl9zq&dl=1' }
     ]
 };
 
@@ -302,10 +351,6 @@ function generateTemplatePreview(template) {
     const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/veiuv1adp575icictjrmj/Your-paragraph-text-1.png?rlkey=w4wrzkn85q290py82r7z3kz7j&st=byhh9k8d&dl=1';
     const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/vym9bqjnb036c17kcijoj/Your-paragraph-text-2.png?rlkey=1bn5we5dnswfal1vpuvpblcsf&st=3gb48nlq&dl=1';
     
-    // Get the candle backgrounds based on selected theme
-    const titleCandleUrl = TITLE_CANDLES[selectedTheme];
-    const endCandleUrl = END_CANDLES[selectedTheme];
-    
     // Sample photo for middle slide
     const samplePhotos = [
         'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
@@ -317,25 +362,52 @@ function generateTemplatePreview(template) {
     // Update preview slides
     const previewSlides = document.querySelectorAll('.preview-slide');
     
-    // Title slide - complete Canva design on CANDLE background
-    previewSlides[0].style.backgroundImage = `url(${titleCandleUrl})`;
-    previewSlides[0].innerHTML = `
-        <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
-    `;
-    
-    // Photo slide - sample photo on TEMPLATE background
-    previewSlides[1].style.backgroundImage = `url(${template.url})`;
-    previewSlides[1].innerHTML = `
-        <div class="preview-photo-container">
-            <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
-        </div>
-    `;
-    
-    // End slide - complete Canva design on CANDLE background
-    previewSlides[2].style.backgroundImage = `url(${endCandleUrl})`;
-    previewSlides[2].innerHTML = `
-        <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
-    `;
+    // 🔥 KEY CHANGE: Vibrant theme = all 3 slides use the same Vibrant background (like custom)
+    if (selectedTheme === 'vibrant') {
+        // Title slide - complete design on VIBRANT background
+        previewSlides[0].style.backgroundImage = `url(${template.url})`;
+        previewSlides[0].innerHTML = `
+            <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
+        `;
+        
+        // Photo slide - sample photo on VIBRANT background
+        previewSlides[1].style.backgroundImage = `url(${template.url})`;
+        previewSlides[1].innerHTML = `
+            <div class="preview-photo-container">
+                <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
+            </div>
+        `;
+        
+        // End slide - complete design on VIBRANT background
+        previewSlides[2].style.backgroundImage = `url(${template.url})`;
+        previewSlides[2].innerHTML = `
+            <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
+        `;
+    } else {
+        // Blue/Gray/Multi - use candle backgrounds for title/end
+        const titleCandleUrl = TITLE_CANDLES[selectedTheme];
+        const endCandleUrl = END_CANDLES[selectedTheme];
+        
+        // Title slide - complete Canva design on CANDLE background
+        previewSlides[0].style.backgroundImage = `url(${titleCandleUrl})`;
+        previewSlides[0].innerHTML = `
+            <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
+        `;
+        
+        // Photo slide - sample photo on TEMPLATE background
+        previewSlides[1].style.backgroundImage = `url(${template.url})`;
+        previewSlides[1].innerHTML = `
+            <div class="preview-photo-container">
+                <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
+            </div>
+        `;
+        
+        // End slide - complete Canva design on CANDLE background
+        previewSlides[2].style.backgroundImage = `url(${endCandleUrl})`;
+        previewSlides[2].innerHTML = `
+            <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
+        `;
+    }
     
     // Show preview
     document.getElementById('previewCarousel').style.display = 'block';
@@ -545,20 +617,40 @@ async function prepareFormData() {
         const border = document.querySelector('input[name="border"]:checked').value;
 
         data.format_choice = format;
-        data.background_type = backgroundType;
         data.border_color = border;
 
+        // 🔥 KEY CHANGE: Vibrant theme is treated as CUSTOM for backend
         if (backgroundType === 'template') {
-            data.theme_color = selectedTheme;
-            data.selected_template = selectedTemplate.id;
-            data.bg_source = selectedTemplate.url;
-            data.background_template = selectedTemplate.id;
-            data.background_url = selectedTemplate.url;
-            data.title_background_url = TITLE_CANDLES[selectedTheme];
-            data.end_background_url = END_CANDLES[selectedTheme];
-            data.custom_background_file = null;
-            data.custom_background_filename = null;
+            if (selectedTheme === 'vibrant') {
+                // Treat Vibrant as custom background
+                data.background_type = 'custom';
+                data.background_url = selectedTemplate.url;
+                data.vibrant_template_name = selectedTemplate.name;
+                data.vibrant_template_id = selectedTemplate.id;
+                data.theme_color = null;
+                data.selected_template = null;
+                data.bg_source = null;
+                data.background_template = null;
+                data.title_background_url = null;
+                data.end_background_url = null;
+                data.custom_background_file = null;
+                data.custom_background_filename = null;
+            } else {
+                // Normal template (blue/gray/multi)
+                data.background_type = 'template';
+                data.theme_color = selectedTheme;
+                data.selected_template = selectedTemplate.id;
+                data.bg_source = selectedTemplate.url;
+                data.background_template = selectedTemplate.id;
+                data.background_url = selectedTemplate.url;
+                data.title_background_url = TITLE_CANDLES[selectedTheme];
+                data.end_background_url = END_CANDLES[selectedTheme];
+                data.custom_background_file = null;
+                data.custom_background_filename = null;
+            }
         } else {
+            // User uploaded custom file
+            data.background_type = 'custom';
             data.custom_background_file = customBackgroundFile;
             data.custom_background_filename = customBackgroundFile.name;
             data.theme_color = null;
