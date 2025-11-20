@@ -113,11 +113,54 @@ const END_CANDLES = {
     multi: 'https://dl.dropboxusercontent.com/scl/fi/y9fwoeswyugtd1zk5l2zu/Closing-candle-multi.jpg?rlkey=9lmpm1ww32vn292aft0atmk58&st=nxhg7w44'
 };
 
+// NEW: Title background options
+const TITLE_BACKGROUNDS = [
+    { id: 'title_candle_blue', name: 'Title Candle Blue', url: 'https://dl.dropboxusercontent.com/scl/fi/nv1f80trndu7nzisi1q2x/Title-candle-blue.jpg?rlkey=yzh1fiis9fy8uod3w6694r51m&st=wi5xkr4p&dl=1' },
+    { id: 'title_candle_gray', name: 'Title Candle Gray', url: 'https://dl.dropboxusercontent.com/scl/fi/i1ht1q3iidfa8oh0zwfhx/Title-candle-gray.jpg?rlkey=f0cknlpy1p4xqjc45ykozneuy&st=ez0qv1p9&dl=1' },
+    { id: 'title_candle_multi', name: 'Title Candle Multi', url: 'https://dl.dropboxusercontent.com/scl/fi/p2c670buipua07hm60crp/Title-candle-multi.jpg?rlkey=84iw6d5gqevv3lhdw5p6az0ap&st=2js4nwg5&dl=1' },
+    { id: 'balance_rocks_palm', name: 'Balance Rocks Palm', url: 'https://dl.dropboxusercontent.com/scl/fi/r040080gfdjydrvd4m7je/Balance-Rocks-Palm.jpg?rlkey=q7vfwre2hepeh7ufjsnqnv5k8&st=rzq533l4&dl=1' },
+    { id: 'blue_candles_small', name: 'Blue Candles Small', url: 'https://dl.dropboxusercontent.com/scl/fi/2io34vrjowmueeytg428e/Blue-Candles-Small.jpg?rlkey=u9he630vsnqxqzrbx6hbw74h6&st=1j66vn9u&dl=1' },
+    { id: 'blue_clouds', name: 'Blue Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/1zyu8rm3hj3ntueck0ol1/Blue-Clouds-1.jpg?rlkey=pmila4rnl77c56d9gk2fnsro7&st=3l30ndct&dl=1' },
+    { id: 'blue_window_intro', name: 'Blue Window', url: 'https://dl.dropboxusercontent.com/scl/fi/envbnzpnm9taul6kkcuuo/Blue-Window-1.jpg?rlkey=t3cgvuk9wcr0dvo1ny1xywxrf&st=tlaf8qas&dl=1' },
+    { id: 'country_cross', name: 'Country Cross', url: 'https://dl.dropboxusercontent.com/scl/fi/2uf5a48gzpxz35rjl38z4/Country-Cross-1.jpg?rlkey=fvgjkuwcoxn5b07l5shsqcv3b&st=w9woqq7y&dl=1' },
+    { id: 'gray_candles_small', name: 'Gray Candles Small', url: 'https://dl.dropboxusercontent.com/scl/fi/m6ckwv7f0nln8nohmufvl/Gray-Candles-Small.jpg?rlkey=h9mbyk040m129s7y8ka0837cy&st=83m7shna&dl=1' },
+    { id: 'gray_rose_intro', name: 'Gray Rose', url: 'https://dl.dropboxusercontent.com/scl/fi/uyr2k5r7749u04tw1i2pg/Gray-Rose-1.jpg?rlkey=sg5guejweqp4xnsjm43k01ieb&st=1sh4k2ot&dl=1' },
+    { id: 'gray_window_intro', name: 'Gray Window', url: 'https://dl.dropboxusercontent.com/scl/fi/mumwwlrgfnahez3x0nj7q/Gray-Window-1.jpg?rlkey=ibz47atq6210rxw5ft80yncro&st=zhyz9ani&dl=1' },
+    { id: 'multi_candles_flower', name: 'Multi Candles & Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/0oj9hui6lo90vw5o07jo4/Multi-Candles-Flower.jpg?rlkey=stynacl2lq1hjh9eilswm8zk2&st=thx4dky1&dl=1' },
+    { id: 'multi_roses', name: 'Multi Roses', url: 'https://dl.dropboxusercontent.com/scl/fi/rbywr4k47o26mudn4oihg/Multi-Roses.jpg?rlkey=to05sbx49c4dm5lyxbcf1mb06&st=1aij9jkf&dl=1' },
+    { id: 'ocean_sunrise', name: 'Ocean Sunrise', url: 'https://dl.dropboxusercontent.com/scl/fi/vnaa04tqbw3ut0yr2y92f/Ocean-Sunrise.jpg?rlkey=bpzhsnemyaik86w53tno6b8hj&st=wogtahbl&dl=1' },
+    { id: 'sunrise_valley_intro', name: 'Sunrise Valley', url: 'https://dl.dropboxusercontent.com/scl/fi/sgqxssqt8kpvkvy1ayzmi/Sunrise-Valley.jpg?rlkey=5qa5dqvmkmi6j6ule5e88kipi&st=7p7tpj26&dl=1' },
+    { id: 'us_flag_candles', name: 'US Flag Candles', url: 'https://dl.dropboxusercontent.com/scl/fi/kwtrp7a454haa4h6wm5aq/US-Flag-Candles.jpg?rlkey=o9xw3s0hwkwbk6nnq4oj699t7&st=vx9l0omk&dl=1' }
+];
+
+// NEW: End background options
+const END_BACKGROUNDS = [
+    { id: 'closing_candle_blue', name: 'Closing Candle Blue', url: 'https://dl.dropboxusercontent.com/scl/fi/wq5k96hlo3j4e7tc0tqo3/Closing-candle-blue.jpg?rlkey=37m0mrpjubumh8mx8lwodgdqf&st=5xqyem1d&dl=1' },
+    { id: 'closing_candle_gray', name: 'Closing Candle Gray', url: 'https://dl.dropboxusercontent.com/scl/fi/lwed5r5lszojhvtdg6wyy/Closing-candle-gray.jpg?rlkey=704mawxq9kiahxqav0m389i6k&st=frgdb4dl&dl=1' },
+    { id: 'closing_candle_multi', name: 'Closing Candle Multi', url: 'https://dl.dropboxusercontent.com/scl/fi/y9fwoeswyugtd1zk5l2zu/Closing-candle-multi.jpg?rlkey=9lmpm1ww32vn292aft0atmk58&st=nxhg7w44&dl=1' },
+    { id: 'closing_29', name: 'Design 29', url: 'https://dl.dropboxusercontent.com/scl/fi/j8in2dl4n1zyzp1ssnkqz/29.jpg?rlkey=ij3v14m5sy14llsoxs593gbma&st=e46z5y7j&dl=1' },
+    { id: 'closing_32', name: 'Design 32', url: 'https://dl.dropboxusercontent.com/scl/fi/k0jr49hx3xiko5sxt5mls/32.jpg?rlkey=se4jtivohbukmpvikk6wrg771&st=pjg98obh&dl=1' },
+    { id: 'closing_33', name: 'Design 33', url: 'https://dl.dropboxusercontent.com/scl/fi/t46z70u7d7t6eqaonqzcf/33.jpg?rlkey=8s32np107jqy9sgolp3z36c0x&st=7wspj7yy&dl=1' },
+    { id: 'balance_rocks', name: 'Balance Rocks', url: 'https://dl.dropboxusercontent.com/scl/fi/e3ahhwf0qucggwn0dwybi/Balance-Rocks.jpg?rlkey=u85kltd2idwlt1ht45w4xgkm7&st=7cwnjwqd&dl=1' },
+    { id: 'blue_candles', name: 'Blue Candles', url: 'https://dl.dropboxusercontent.com/scl/fi/vsmttwd9hso982z50wszh/Blue-Candles.jpg?rlkey=o4h7n9duz2zmly42w9oe3llgl&st=uhok3icw&dl=1' },
+    { id: 'blue_lanterns', name: 'Blue Lanterns', url: 'https://dl.dropboxusercontent.com/scl/fi/t5ilflzabl81kf5vyx7do/Blue-Lanterns.jpg?rlkey=8x39trkxx2xptlw49lklktxmk&st=n6enbuvk&dl=1' },
+    { id: 'blue_window', name: 'Blue Window', url: 'https://dl.dropboxusercontent.com/scl/fi/tqnkvxc00vzaqzy04coxx/Blue-Window.jpg?rlkey=9y8tv2vuc0xca3t2bcutrnfm8&st=by9ad29r&dl=1' },
+    { id: 'flag_side', name: 'Flag Side', url: 'https://dl.dropboxusercontent.com/scl/fi/agxk4716j5g7dtm8sox6x/Flag-Side.jpg?rlkey=sc8g73f1we7hazsu3f7f3frw0&st=6dz4roww&dl=1' },
+    { id: 'gray_candles', name: 'Gray Candles', url: 'https://dl.dropboxusercontent.com/scl/fi/h5itilepbraj0d9yl3vjs/Gray-Candles.jpg?rlkey=qg0sfn0ke8gxf2kzrjojztf7c&st=cs4mxg06&dl=1' },
+    { id: 'gray_lantern', name: 'Gray Lantern', url: 'https://dl.dropboxusercontent.com/scl/fi/1kdiur7t76dcqmnb3kydg/Gray-Lantern.jpg?rlkey=4dqqrery3wa1doho9iqm1drib&st=l7589iqi&dl=1' },
+    { id: 'gray_rose', name: 'Gray Rose', url: 'https://dl.dropboxusercontent.com/scl/fi/kppag5yubn1uanybwshlr/Gray-Rose.jpg?rlkey=yl9iuphqv4izfwyl498yxv3vy&st=cxec74gh&dl=1' },
+    { id: 'multi_candles', name: 'Multi Candles', url: 'https://dl.dropboxusercontent.com/scl/fi/obde00ik14zzj1fwod1by/Multi-Candles.jpg?rlkey=tntbifxt1ub58sj1l3u4h0h24&st=mi8jvrvh&dl=1' },
+    { id: 'multi_floral', name: 'Multi Floral', url: 'https://dl.dropboxusercontent.com/scl/fi/06c1ff3bg330mei0b299h/Multi-Floral.jpg?rlkey=yvql2g7f0m778an12xnkcbdec&st=2xicznus&dl=1' },
+    { id: 'sunset_valley', name: 'Sunset Valley', url: 'https://dl.dropboxusercontent.com/scl/fi/sclhq02bmkh8rki2wyuml/Sunset-Valley.jpg?rlkey=y5ljccwkdxm2c1arjl58wcz9d&st=uwis44bn&dl=1' }
+];
+
 // State management
 let selectedTheme = null;
 let selectedTemplate = null;
 let customBackgroundFile = null;
 let currentSlideIndex = 0;
+let selectedTitleBackground = null;  // NEW
+let selectedEndBackground = null;    // NEW
 
 // Carousel navigation functions (global scope for onclick handlers)
 window.changeSlide = function(direction) {
@@ -180,6 +223,10 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeForm() {
+    // NEW: Load title and end background galleries
+    loadTitleBackgrounds();
+    loadEndBackgrounds();
+    
     // Age calculation
     const birthdateInput = document.getElementById('birthdate');
     const deathdateInput = document.getElementById('deathdate');
@@ -327,6 +374,80 @@ function loadTemplates(theme) {
         item.addEventListener('click', () => selectTemplate(item, template));
         gallery.appendChild(item);
     });
+}
+
+function loadTitleBackgrounds() {
+    const gallery = document.getElementById('titleBackgroundGallery');
+    gallery.innerHTML = '';
+
+    TITLE_BACKGROUNDS.forEach(background => {
+        const item = document.createElement('div');
+        item.className = 'template-item';
+        item.dataset.backgroundId = background.id;
+        item.dataset.backgroundUrl = background.url;
+
+        item.innerHTML = `
+            <img src="${background.url}" alt="${background.name}">
+            <div class="template-name">${background.name}</div>
+            <div class="checkmark">✓</div>
+        `;
+
+        item.addEventListener('click', () => selectTitleBackground(item, background));
+        gallery.appendChild(item);
+    });
+}
+
+function selectTitleBackground(item, background) {
+    // Remove previous selection
+    document.querySelectorAll('#titleBackgroundGallery .template-item').forEach(t => {
+        t.classList.remove('selected');
+    });
+
+    // Select new background
+    item.classList.add('selected');
+    selectedTitleBackground = background;
+    
+    // Update hidden input
+    document.getElementById('titleBackground').value = background.id;
+    
+    console.log('Selected title background:', background.name);
+}
+
+function loadEndBackgrounds() {
+    const gallery = document.getElementById('endBackgroundGallery');
+    gallery.innerHTML = '';
+
+    END_BACKGROUNDS.forEach(background => {
+        const item = document.createElement('div');
+        item.className = 'template-item';
+        item.dataset.backgroundId = background.id;
+        item.dataset.backgroundUrl = background.url;
+
+        item.innerHTML = `
+            <img src="${background.url}" alt="${background.name}">
+            <div class="template-name">${background.name}</div>
+            <div class="checkmark">✓</div>
+        `;
+
+        item.addEventListener('click', () => selectEndBackground(item, background));
+        gallery.appendChild(item);
+    });
+}
+
+function selectEndBackground(item, background) {
+    // Remove previous selection
+    document.querySelectorAll('#endBackgroundGallery .template-item').forEach(t => {
+        t.classList.remove('selected');
+    });
+
+    // Select new background
+    item.classList.add('selected');
+    selectedEndBackground = background;
+    
+    // Update hidden input
+    document.getElementById('endBackground').value = background.id;
+    
+    console.log('Selected end background:', background.name);
 }
 
 function selectTemplate(item, template) {
@@ -557,10 +678,20 @@ function validateForm() {
         }
     }
 
-    // Check border selection
+// Check border selection
     const border = document.querySelector('input[name="border"]:checked');
     if (!border) {
         return { valid: false, message: 'Please select a border style' };
+    }
+
+    // NEW: Check title background selection
+    if (!selectedTitleBackground) {
+        return { valid: false, message: 'Please select a title slide background' };
+    }
+
+    // NEW: Check end background selection
+    if (!selectedEndBackground) {
+        return { valid: false, message: 'Please select an end slide background' };
     }
 
     // Check format
@@ -618,6 +749,10 @@ async function prepareFormData() {
 
         data.format_choice = format;
         data.border_color = border;
+
+        // NEW: Add title and end background choices
+        data.title_background_choice = selectedTitleBackground.id;
+        data.end_background_choice = selectedEndBackground.id;
 
         // 🔥 KEY CHANGE: Vibrant theme is treated as CUSTOM for backend
         if (backgroundType === 'template') {
