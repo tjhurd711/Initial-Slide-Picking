@@ -411,6 +411,9 @@ function selectTitleBackground(item, background) {
     document.getElementById('titleBackground').value = background.id;
     
     console.log('Selected title background:', background.name);
+
+    // NEW: Update preview carousel
+    updatePreviewCarousel();
 }
 
 function loadEndBackgrounds() {
@@ -448,6 +451,82 @@ function selectEndBackground(item, background) {
     document.getElementById('endBackground').value = background.id;
     
     console.log('Selected end background:', background.name);
+
+    // NEW: Update preview carousel
+    updatePreviewCarousel();
+}
+
+function updatePreviewCarousel() {
+    // Only update if we have all the pieces
+    const hasMiddleBackground = selectedTemplate || customBackgroundFile;
+    const hasTitleBackground = selectedTitleBackground;
+    const hasEndBackground = selectedEndBackground;
+    
+    if (!hasMiddleBackground || !hasTitleBackground || !hasEndBackground) {
+        // Not ready to show preview yet
+        return;
+    }
+    
+    // Reset to first slide
+    currentSlideIndex = 0;
+    
+    // Complete slide design images
+    const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/veiuv1adp575icictjrmj/Your-paragraph-text-1.png?rlkey=w4wrzkn85q290py82r7z3kz7j&st=byhh9k8d&dl=1';
+    const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/vym9bqjnb036c17kcijoj/Your-paragraph-text-2.png?rlkey=1bn5we5dnswfal1vpuvpblcsf&st=3gb48nlq&dl=1';
+    
+    // Sample photo for middle slide
+    const samplePhotos = [
+        'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
+        'https://dl.dropboxusercontent.com/scl/fi/8t2slrauqqr8poib5ekbt/DSC_0333.JPG?rlkey=d2v17cupbgk5prodeyftskfdg&st=h6pwi9e9&dl=1',
+        'https://dl.dropboxusercontent.com/scl/fi/7v625luwbb2ch2h5u6zi3/200-s_Eureka-Springs_0002.jpg?rlkey=ff5z6rpteujr71a4r5jvg9b49&st=6zbovd9r&dl=1'
+    ];
+    const randomPhoto = samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
+    
+    // Get middle slide background URL
+    let middleBackgroundUrl;
+    if (customBackgroundFile) {
+        // Custom uploaded file - use the data URL we created
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            middleBackgroundUrl = event.target.result;
+            applyPreviewBackgrounds(middleBackgroundUrl, completeTitleSlide, completeEndSlide, randomPhoto);
+        };
+        reader.readAsDataURL(customBackgroundFile);
+        return; // Exit early since FileReader is async
+    } else if (selectedTemplate) {
+        // Template selected
+        middleBackgroundUrl = selectedTemplate.url;
+    }
+    
+    applyPreviewBackgrounds(middleBackgroundUrl, completeTitleSlide, completeEndSlide, randomPhoto);
+}
+
+function applyPreviewBackgrounds(middleBackgroundUrl, completeTitleSlide, completeEndSlide, randomPhoto) {
+    // Update preview slides
+    const previewSlides = document.querySelectorAll('.preview-slide');
+    
+    // Title slide - use SELECTED title background
+    previewSlides[0].style.backgroundImage = `url(${selectedTitleBackground.url})`;
+    previewSlides[0].innerHTML = `
+        <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
+    `;
+    
+    // Photo slide - use template or custom background
+    previewSlides[1].style.backgroundImage = `url(${middleBackgroundUrl})`;
+    previewSlides[1].innerHTML = `
+        <div class="preview-photo-container">
+            <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
+        </div>
+    `;
+    
+    // End slide - use SELECTED end background
+    previewSlides[2].style.backgroundImage = `url(${selectedEndBackground.url})`;
+    previewSlides[2].innerHTML = `
+        <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
+    `;
+    
+    // Show preview
+    document.getElementById('previewCarousel').style.display = 'block';
 }
 
 function selectTemplate(item, template) {
@@ -460,8 +539,8 @@ function selectTemplate(item, template) {
     item.classList.add('selected');
     selectedTemplate = template;
     
-    // Show preview for this template
-    generateTemplatePreview(template);
+    // NEW: Use unified preview function
+    updatePreviewCarousel();
 }
 
 function generateTemplatePreview(template) {
@@ -553,53 +632,8 @@ function handleCustomUpload(e) {
 
     customBackgroundFile = file;
 
-    // Show carousel preview with realistic slide mockups
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const bgUrl = event.target.result;
-        
-        // Reset to first slide
-        currentSlideIndex = 0;
-        
-        // Sample photo for middle slide
-        const samplePhotos = [
-            'https://dl.dropboxusercontent.com/scl/fi/muk80km89bxo4u823gcad/DSC_0701.JPG?rlkey=4993te66b9xg6xy7mz69md2d2&st=25gczbgp&dl=1',
-            'https://dl.dropboxusercontent.com/scl/fi/8t2slrauqqr8poib5ekbt/DSC_0333.JPG?rlkey=d2v17cupbgk5prodeyftskfdg&st=h6pwi9e9&dl=1',
-            'https://dl.dropboxusercontent.com/scl/fi/7v625luwbb2ch2h5u6zi3/200-s_Eureka-Springs_0002.jpg?rlkey=ff5z6rpteujr71a4r5jvg9b49&st=6zbovd9r&dl=1'
-        ];
-        const randomPhoto = samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
-        
-        // Complete slide design images
-        const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/veiuv1adp575icictjrmj/Your-paragraph-text-1.png?rlkey=w4wrzkn85q290py82r7z3kz7j&st=byhh9k8d&dl=1';
-        const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/vym9bqjnb036c17kcijoj/Your-paragraph-text-2.png?rlkey=1bn5we5dnswfal1vpuvpblcsf&st=3gb48nlq&dl=1';
-        
-        // Update preview slides
-        const previewSlides = document.querySelectorAll('.preview-slide');
-        
-        // Title slide - complete Canva design
-        previewSlides[0].style.backgroundImage = `url(${bgUrl})`;
-        previewSlides[0].innerHTML = `
-            <img src="${completeTitleSlide}" alt="Title Slide" style="width: 100%; height: 100%; object-fit: contain;">
-        `;
-        
-        // Photo slide (centered photo with NO border on custom background)
-        previewSlides[1].style.backgroundImage = `url(${bgUrl})`;
-        previewSlides[1].innerHTML = `
-            <div class="preview-photo-container">
-                <img src="${randomPhoto}" class="preview-sample-photo" alt="Sample Photo">
-            </div>
-        `;
-        
-        // End slide - complete Canva design
-        previewSlides[2].style.backgroundImage = `url(${bgUrl})`;
-        previewSlides[2].innerHTML = `
-            <img src="${completeEndSlide}" alt="End Slide" style="width: 100%; height: 100%; object-fit: contain;">
-        `;
-        
-        // Show preview
-        document.getElementById('previewCarousel').style.display = 'block';
-    };
-    reader.readAsDataURL(file);
+    // NEW: Use unified preview function
+    updatePreviewCarousel();
 
     hideError();
 }
