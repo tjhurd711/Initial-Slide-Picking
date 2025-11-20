@@ -619,10 +619,6 @@ async function prepareFormData() {
         data.format_choice = format;
         data.border_color = border;
 
-        // NEW: Add title and end background choices
-        data.title_background_choice = document.getElementById('titleBackground').value;
-        data.end_background_choice = document.getElementById('endBackground').value;
-
         // 🔥 KEY CHANGE: Vibrant theme is treated as CUSTOM for backend
         if (backgroundType === 'template') {
             if (selectedTheme === 'vibrant') {
