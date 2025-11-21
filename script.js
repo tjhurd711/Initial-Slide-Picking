@@ -430,10 +430,6 @@ function selectTitleBackground(item, background) {
     btn.textContent = `Opening: ${background.name}`;
     btn.classList.add('selected');
     
-    // Close dropdown
-    document.getElementById('titleBackgroundGallery').style.display = 'none';
-    btn.classList.remove('active');
-    
     console.log('Selected title background:', background.name);
 
     // Update preview carousel
@@ -493,10 +489,6 @@ function selectEndBackground(item, background) {
     const btn = document.getElementById('endDropdownBtn');
     btn.textContent = `Closing: ${background.name}`;
     btn.classList.add('selected');
-    
-    // Close dropdown
-    document.getElementById('endBackgroundGallery').style.display = 'none';
-    btn.classList.remove('active');
     
     console.log('Selected end background:', background.name);
 
