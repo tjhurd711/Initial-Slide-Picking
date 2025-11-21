@@ -378,6 +378,8 @@ function loadTemplates(theme) {
 
 function loadTitleBackgrounds() {
     const gallery = document.getElementById('titleBackgroundGallery');
+    const btn = document.getElementById('titleDropdownBtn');
+    
     gallery.innerHTML = '';
 
     TITLE_BACKGROUNDS.forEach(background => {
@@ -395,8 +397,14 @@ function loadTitleBackgrounds() {
         item.addEventListener('click', () => selectTitleBackground(item, background));
         gallery.appendChild(item);
     });
+    
+    // Toggle dropdown on button click
+    btn.addEventListener('click', () => {
+        const isVisible = gallery.style.display === 'grid';
+        gallery.style.display = isVisible ? 'none' : 'grid';
+        btn.classList.toggle('active');
+    });
 }
-
 function selectTitleBackground(item, background) {
     // Remove previous selection
     document.querySelectorAll('#titleBackgroundGallery .template-item').forEach(t => {
@@ -410,14 +418,24 @@ function selectTitleBackground(item, background) {
     // Update hidden input
     document.getElementById('titleBackground').value = background.id;
     
+    // Update button text and style
+    const btn = document.getElementById('titleDropdownBtn');
+    btn.textContent = `Opening: ${background.name}`;
+    btn.classList.add('selected');
+    
+    // Close dropdown
+    document.getElementById('titleBackgroundGallery').style.display = 'none';
+    btn.classList.remove('active');
+    
     console.log('Selected title background:', background.name);
 
-    // NEW: Update preview carousel
+    // Update preview carousel
     updatePreviewCarousel();
 }
-
 function loadEndBackgrounds() {
     const gallery = document.getElementById('endBackgroundGallery');
+    const btn = document.getElementById('endDropdownBtn');
+    
     gallery.innerHTML = '';
 
     END_BACKGROUNDS.forEach(background => {
@@ -435,6 +453,13 @@ function loadEndBackgrounds() {
         item.addEventListener('click', () => selectEndBackground(item, background));
         gallery.appendChild(item);
     });
+    
+    // Toggle dropdown on button click
+    btn.addEventListener('click', () => {
+        const isVisible = gallery.style.display === 'grid';
+        gallery.style.display = isVisible ? 'none' : 'grid';
+        btn.classList.toggle('active');
+    });
 }
 
 function selectEndBackground(item, background) {
@@ -450,9 +475,18 @@ function selectEndBackground(item, background) {
     // Update hidden input
     document.getElementById('endBackground').value = background.id;
     
+    // Update button text and style
+    const btn = document.getElementById('endDropdownBtn');
+    btn.textContent = `Closing: ${background.name}`;
+    btn.classList.add('selected');
+    
+    // Close dropdown
+    document.getElementById('endBackgroundGallery').style.display = 'none';
+    btn.classList.remove('active');
+    
     console.log('Selected end background:', background.name);
 
-    // NEW: Update preview carousel
+    // Update preview carousel
     updatePreviewCarousel();
 }
 
