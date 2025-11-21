@@ -147,7 +147,10 @@
                     <!-- NEW: Title Slide Background Selection -->
                     <div class="form-group">
                         <label>Title Slide Background *</label>
-                        <div id="titleBackgroundGallery" class="template-gallery">
+                        <button type="button" class="dropdown-btn" id="titleDropdownBtn">
+                            Select an Opening Slide Background
+                        </button>
+                        <div id="titleBackgroundGallery" class="template-gallery" style="display: none;">
                             <!-- Will be populated by JavaScript -->
                         </div>
                         <input type="hidden" id="titleBackground" name="titleBackground" required>
@@ -156,7 +159,10 @@
                     <!-- NEW: End Slide Background Selection -->
                     <div class="form-group">
                         <label>End Slide Background *</label>
-                        <div id="endBackgroundGallery" class="template-gallery">
+                        <button type="button" class="dropdown-btn" id="endDropdownBtn">
+                            Select a Closing Slide Background
+                        </button>
+                        <div id="endBackgroundGallery" class="template-gallery" style="display: none;">
                             <!-- Will be populated by JavaScript -->
                         </div>
                         <input type="hidden" id="endBackground" name="endBackground" required>
