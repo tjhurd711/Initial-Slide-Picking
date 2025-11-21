@@ -547,3 +547,44 @@ footer {
         font-size: 18px;
     }
 }
+
+/* Dropdown Button Styles */
+.dropdown-btn {
+    width: 100%;
+    padding: 16px 20px;
+    background: white;
+    color: #1e3c72;
+    border: 2px solid #1e3c72;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    position: relative;
+}
+
+.dropdown-btn:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 60, 114, 0.2);
+}
+
+.dropdown-btn:after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.dropdown-btn.active:after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-btn.selected {
+    background: #e8f4ff;
+    border-color: #1e3c72;
+}
