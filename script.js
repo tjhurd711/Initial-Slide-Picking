@@ -270,9 +270,9 @@ function showFileOnlyForm() {
     }
     
     // Update intro text
-    const introText = document.querySelector('.intro-text');
-    if (introText) {
-        introText.textContent = 'Please provide the following information to help us organize your photos chronologically.';
+    const subtitle = document.querySelector('.subtitle');
+    if (subtitle) {
+        subtitle.textContent = 'Please provide the following information to help us organize your photos chronologically.';
     }
     
     // Make background/border/format fields not required
@@ -286,12 +286,21 @@ function showFileOnlyForm() {
         input.removeAttribute('required');
     });
     
+    // Make title/end background fields not required for File_Only
+    const titleBgInput = document.getElementById('titleBackground');
+    const endBgInput = document.getElementById('endBackground');
+    if (titleBgInput) titleBgInput.removeAttribute('required');
+    if (endBgInput) endBgInput.removeAttribute('required');
+    
     // Update submit button text
     const submitBtn = document.getElementById('submitBtn');
     if (submitBtn) {
+        submitBtn.style.display = 'block'; // Force visible
         const btnText = submitBtn.querySelector('.btn-text');
         if (btnText) btnText.textContent = 'Complete Order';
     }
+    
+    console.log('Submit button should now be visible');
 }
 
 function calculateAge() {
