@@ -399,12 +399,19 @@ function loadTitleBackgrounds() {
     });
     
     // Toggle dropdown on button click
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isVisible = gallery.style.display === 'grid';
         gallery.style.display = isVisible ? 'none' : 'grid';
         btn.classList.toggle('active');
     });
+    
+    // Prevent dropdown from closing when clicking inside gallery
+    gallery.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
 }
+
 function selectTitleBackground(item, background) {
     // Remove previous selection
     document.querySelectorAll('#titleBackgroundGallery .template-item').forEach(t => {
@@ -432,6 +439,7 @@ function selectTitleBackground(item, background) {
     // Update preview carousel
     updatePreviewCarousel();
 }
+
 function loadEndBackgrounds() {
     const gallery = document.getElementById('endBackgroundGallery');
     const btn = document.getElementById('endDropdownBtn');
@@ -455,10 +463,16 @@ function loadEndBackgrounds() {
     });
     
     // Toggle dropdown on button click
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isVisible = gallery.style.display === 'grid';
         gallery.style.display = isVisible ? 'none' : 'grid';
         btn.classList.toggle('active');
+    });
+    
+    // Prevent dropdown from closing when clicking inside gallery
+    gallery.addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 }
 
