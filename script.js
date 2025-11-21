@@ -297,7 +297,7 @@ function showFileOnlyForm() {
     if (submitBtn) {
         submitBtn.style.display = 'block'; // Force visible
         const btnText = submitBtn.querySelector('.btn-text');
-        if (btnText) btnText.textContent = 'Complete Order';
+        if (btnText) btnText.textContent = 'Submit';
     }
     
     console.log('Submit button should now be visible');
