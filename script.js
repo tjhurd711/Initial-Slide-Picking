@@ -201,12 +201,18 @@ window.addEventListener('DOMContentLoaded', () => {
     const name = urlParams.get('name');
     const type = urlParams.get('type');
     const email = urlParams.get('email');
+    const deceasedname = urlParams.get('deceasedname');
 
     // Fill hidden fields
     document.getElementById('uid').value = uid || '';
     document.getElementById('urlName').value = name || '';
     document.getElementById('type').value = type || '';
     document.getElementById('email').value = email || '';
+
+    // Parse and pre-fill deceased name
+    if (deceasedname) {
+        parseAndFillDeceasedName(deceasedname);
+    }
 
     // ✅ ALWAYS attach submit listener regardless of order type
     const form = document.getElementById('slideshowForm');
@@ -221,6 +227,53 @@ window.addEventListener('DOMContentLoaded', () => {
     // Initialize form handlers (for slideshow orders only)
     initializeForm();
 });
+
+function parseAndFillDeceasedName(fullName) {
+    // Common suffixes to detect
+    const suffixes = ['Jr', 'Jr.', 'SR', 'Sr.', 'II', 'III', 'IV', 'V'];
+    
+    // Split the full name by spaces
+    const parts = fullName.trim().split(/\s+/);
+    
+    if (parts.length === 0) return;
+    
+    let firstName = '';
+    let middleName = '';
+    let lastName = '';
+    let suffix = '';
+    
+    // Check if last part is a suffix
+    const lastPart = parts[parts.length - 1];
+    const isSuffix = suffixes.some(s => s.toLowerCase() === lastPart.toLowerCase());
+    
+    if (isSuffix) {
+        suffix = lastPart;
+        parts.pop(); // Remove suffix from parts
+    }
+    
+    if (parts.length === 1) {
+        // Only first name
+        firstName = parts[0];
+    } else if (parts.length === 2) {
+        // First and last name
+        firstName = parts[0];
+        lastName = parts[1];
+    } else if (parts.length >= 3) {
+        // First, middle(s), and last name
+        firstName = parts[0];
+        lastName = parts[parts.length - 1];
+        // Everything in between is middle name
+        middleName = parts.slice(1, -1).join(' ');
+    }
+    
+    // Fill the form fields
+    document.getElementById('deceasedFirstName').value = firstName;
+    document.getElementById('deceasedMiddleName').value = middleName;
+    document.getElementById('deceasedLastName').value = lastName;
+    document.getElementById('deceasedSuffix').value = suffix;
+    
+    console.log('Parsed deceased name:', { firstName, middleName, lastName, suffix });
+}
 
 function initializeForm() {
     // NEW: Load title and end background galleries
@@ -801,9 +854,13 @@ async function prepareFormData() {
     const deceasedFirstName = document.getElementById('deceasedFirstName').value;
     const deceasedMiddleName = document.getElementById('deceasedMiddleName').value;
     const deceasedLastName = document.getElementById('deceasedLastName').value;
-    const deceasedName = deceasedMiddleName 
-        ? `${deceasedFirstName} ${deceasedMiddleName} ${deceasedLastName}`
-        : `${deceasedFirstName} ${deceasedLastName}`;
+    const deceasedSuffix = document.getElementById('deceasedSuffix').value;
+    
+    // Build full name with suffix
+    let deceasedName = deceasedFirstName;
+    if (deceasedMiddleName) deceasedName += ` ${deceasedMiddleName}`;
+    deceasedName += ` ${deceasedLastName}`;
+    if (deceasedSuffix) deceasedName += ` ${deceasedSuffix}`;
     
     const birthdate = document.getElementById('birthdate').value;
     const deathdate = document.getElementById('deathdate').value;
@@ -820,6 +877,7 @@ async function prepareFormData() {
         deceased_first_name: deceasedFirstName,
         deceased_middle_name: deceasedMiddleName,
         deceased_last_name: deceasedLastName,
+        deceased_suffix: deceasedSuffix,
         birthdate,
         deathdate
     };
