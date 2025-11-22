@@ -383,7 +383,7 @@ function calculateAge() {
 
     document.getElementById('calculatedAge').textContent = `${age} years`;
     document.getElementById('ageDisplay').style.display = 'block';
-    hideError();
+    hideError(); // This shouldn't cause scroll
 }
 
 function handleBackgroundTypeChange(e) {
@@ -1011,7 +1011,10 @@ function showError(message) {
     const errorDiv = document.getElementById('errorMessage');
     errorDiv.textContent = message;
     errorDiv.style.display = 'block';
-    errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // Only scroll if the error div is not already visible
+    setTimeout(() => {
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
 }
 
 function hideError() {
