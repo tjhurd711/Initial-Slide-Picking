@@ -370,7 +370,7 @@ function calculateAge() {
 
     if (death < birth) {
         document.getElementById('ageDisplay').style.display = 'none';
-        showError('Date of passing must be after birthdate');
+        // DON'T show error or scroll - just hide the age display silently
         return;
     }
 
@@ -383,7 +383,7 @@ function calculateAge() {
 
     document.getElementById('calculatedAge').textContent = `${age} years`;
     document.getElementById('ageDisplay').style.display = 'block';
-    hideError(); // This shouldn't cause scroll
+    hideError(); // Clear any previous errors
 }
 
 function handleBackgroundTypeChange(e) {
