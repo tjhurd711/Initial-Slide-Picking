@@ -12,42 +12,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Template data with all themes including Vibrant (47 templates)
-const TEMPLATES = {
+const MIDDLE_BACKGROUNDS = {
     blue: [
-        { id: 'beach_blue', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/dj5mzvmg8376o423d27uq/BeachP-Blue.jpg?rlkey=lg0fbwx7xj215eclg1znu1jxd&st=ogkcpetm' },
-        { id: 'clouds_blue', name: 'Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/fen11psniha46iwjms383/Clouds-Blue.jpg?rlkey=hc2rrceduldrecz2aqhp8kda2&st=3ckvobbv' },
-        { id: 'fading_hearts_blue', name: 'Fading Hearts', url: 'https://dl.dropboxusercontent.com/scl/fi/n533cqoxffakpbsxp8d8z/Fading-Hearts-Blue.jpg?rlkey=dqm0tppw6d69zq6n4whxectp5&st=dd0h9dtq' },
-        { id: 'fish_blue', name: 'Fish', url: 'https://dl.dropboxusercontent.com/scl/fi/b8di7d8f2n2k17h6ylq4v/Fish-Blue.jpg?rlkey=6bz7l5srdvz6x5pvlckjkuntf&st=iuf3fm9s' },
-        { id: 'golf_blue', name: 'Golf', url: 'https://dl.dropboxusercontent.com/scl/fi/yy2lzifprzqsr3hpbx32i/Golf-Blue.jpg?rlkey=h6509taofzshwu5v6lea0tzuv&st=y71f2odi' },
-        { id: 'gradient_blue', name: 'Gradient', url: 'https://dl.dropboxusercontent.com/scl/fi/vdq986vi8rnm35gcbicr4/Gradient-Blue.jpg?rlkey=0fwb3ntd0su0o83hvt76439x4&st=1fh8enw3' },
-        { id: 'modern_blue', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/918cdbiofftso1ltvbio0/Modern-Blue.jpg?rlkey=l6wujvkettp2r62i8y1pfb2ui&st=x0q0u3u8' },
-        { id: 'mountain_view_blue', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/t2vy923uptzn0twpel7sb/Mountain-View-Blue.jpg?rlkey=ek580gqqlalqzu5a1y4zywsd3&st=tf6pu5dg' },
-        { id: 'us_flag_blue', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/hvzahgnw41yjaktw1a1qc/USFlag-Blue.jpg?rlkey=ov3s5zqcrpom3cb02s3bdlnkz&st=anv2j2xv' },
-        { id: 'wild_flowers_blue', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/53os5m1hglm4z143ln80d/Wild-Flowers-Blue.jpg?rlkey=rojdxq4a6ycjfxtyxy09vwmfx&st=eo3otum5' }
+        { id: 'beach_blue', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/t8our4ertkm5223ixpche/Beach-Blue.jpg?rlkey=jqe81llwg5k1evnth5j4rn2cg&st=ss3nrvt1&dl=1' },
+        { id: 'clouds_blue', name: 'Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/fen11psniha46iwjms383/Clouds-Blue.jpg?rlkey=hc2rrceduldrecz2aqhp8kda2&st=3ckvobbv&dl=1' },
+        { id: 'fading_hearts_blue', name: 'Fading Hearts', url: 'https://dl.dropboxusercontent.com/scl/fi/n533cqoxffakpbsxp8d8z/Fading-Hearts-Blue.jpg?rlkey=dqm0tppw6d69zq6n4whxectp5&st=dd0h9dtq&dl=1' },
+        { id: 'fish_blue', name: 'Fish', url: 'https://dl.dropboxusercontent.com/scl/fi/b8di7d8f2n2k17h6ylq4v/Fish-Blue.jpg?rlkey=6bz7l5srdvz6x5pvlckjkuntf&st=iuf3fm9s&dl=1' },
+        { id: 'golf_blue', name: 'Golf', url: 'https://dl.dropboxusercontent.com/scl/fi/yy2lzifprzqsr3hpbx32i/Golf-Blue.jpg?rlkey=h6509taofzshwu5v6lea0tzuv&st=y71f2odi&dl=1' },
+        { id: 'gradient_blue', name: 'Gradient', url: 'https://dl.dropboxusercontent.com/scl/fi/vdq986vi8rnm35gcbicr4/Gradient-Blue.jpg?rlkey=0fwb3ntd0su0o83hvt76439x4&st=1fh8enw3&dl=1' },
+        { id: 'modern_blue', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/918cdbiofftso1ltvbio0/Modern-Blue.jpg?rlkey=l6wujvkettp2r62i8y1pfb2ui&st=x0q0u3u8&dl=1' },
+        { id: 'mountain_view_blue', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/t2vy923uptzn0twpel7sb/Mountain-View-Blue.jpg?rlkey=ek580gqqlalqzu5a1y4zywsd3&st=tf6pu5dg&dl=1' },
+        { id: 'us_flag_blue', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/hvzahgnw41yjaktw1a1qc/USFlag-Blue.jpg?rlkey=ov3s5zqcrpom3cb02s3bdlnkz&st=anv2j2xv&dl=1' },
+        { id: 'wild_flowers_blue', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/53os5m1hglm4z143ln80d/Wild-Flowers-Blue.jpg?rlkey=rojdxq4a6ycjfxtyxy09vwmfx&st=eo3otum5&dl=1' }
     ],
     gray: [
-        { id: 'beach_gray', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/n5ckrdqh3zbf8j1784bov/BeachP-Gray.jpg?rlkey=w9qrs3b2lgd4xxnveossrkaa2&st=odeodmwp' },
-        { id: 'clouds_gray', name: 'Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/7yvp2znooyrlsalpi98ap/Clouds-Gray.jpg?rlkey=awtsd5zj02xp9tj6ocxizrreu&st=nnulx4u7' },
-        { id: 'fading_hearts_gray', name: 'Fading Hearts', url: 'https://dl.dropboxusercontent.com/scl/fi/ohqcxbnne3uyef7pt2tof/Fading-Hearts-Gray.jpg?rlkey=y42mlirt3dt8tkjv79mqxivtj&st=u8mruc3b' },
-        { id: 'fish_gray', name: 'Fish', url: 'https://dl.dropboxusercontent.com/scl/fi/6nip6ht4uihouh6a4qlrl/Fish-Gray.jpg?rlkey=864yr70encb55uzmp5d3kc3k5&st=9uulac30' },
-        { id: 'golf_gray', name: 'Golf', url: 'https://dl.dropboxusercontent.com/scl/fi/vgwclkxul6flwqf1y1kov/Golf-Gray.jpg?rlkey=unorrei8zsu38nl3uimax0lpz&st=ctjd0hhb' },
-        { id: 'gradient_gray', name: 'Gradient', url: 'https://dl.dropboxusercontent.com/scl/fi/9aohm9wi4p5f2x7zwb7kr/Gradient-Gray.jpg?rlkey=22r4idxzevlmsrjjqq5qxsjsc&st=w0xbl1hg' },
-        { id: 'modern_gray', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/bleufllefjsgpxt7f8pn2/Modern-Gray.jpg?rlkey=6co7y16d8ydzx4semv5obme3u&st=l0rwf7e2' },
-        { id: 'mountain_view_gray', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/s96txf8z3mtvj2q98uxyr/Mountain-View-Gray.jpg?rlkey=8p0fccqa9ykjel6empdw1vh9m&st=tkihki7t' },
-        { id: 'us_flag_gray', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/iy59fc81jb1unqjp0t9hu/USFlag-Gray.jpg?rlkey=6v66l8snzuv2jhz7lo9y7alh4&st=rhxri02u' },
-        { id: 'wild_flowers_gray', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/eun3o2h1vqol04535ak1x/Wild-Flowers-Gray.jpg?rlkey=01s179l4t14nqde7ahzacrxie&st=i3cf317p' }
+        { id: 'beach_gray', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/h51u85odiseegy4rtrycu/Beach-Gray.jpg?rlkey=wiw0ae1t6ibcyicknzkkfb0ru&st=rzz6vj3l&dl=1' },
+        { id: 'clouds_gray', name: 'Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/7yvp2znooyrlsalpi98ap/Clouds-Gray.jpg?rlkey=awtsd5zj02xp9tj6ocxizrreu&st=nnulx4u7&dl=1' },
+        { id: 'fading_hearts_gray', name: 'Fading Hearts', url: 'https://dl.dropboxusercontent.com/scl/fi/ohqcxbnne3uyef7pt2tof/Fading-Hearts-Gray.jpg?rlkey=y42mlirt3dt8tkjv79mqxivtj&st=u8mruc3b&dl=1' },
+        { id: 'fish_gray', name: 'Fish', url: 'https://dl.dropboxusercontent.com/scl/fi/6nip6ht4uihouh6a4qlrl/Fish-Gray.jpg?rlkey=864yr70encb55uzmp5d3kc3k5&st=9uulac30&dl=1' },
+        { id: 'golf_gray', name: 'Golf', url: 'https://dl.dropboxusercontent.com/scl/fi/vgwclkxul6flwqf1y1kov/Golf-Gray.jpg?rlkey=unorrei8zsu38nl3uimax0lpz&st=ctjd0hhb&dl=1' },
+        { id: 'gradient_gray', name: 'Gradient', url: 'https://dl.dropboxusercontent.com/scl/fi/9aohm9wi4p5f2x7zwb7kr/Gradient-Gray.jpg?rlkey=22r4idxzevlmsrjjqq5qxsjsc&st=w0xbl1hg&dl=1' },
+        { id: 'modern_gray', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/bleufllefjsgpxt7f8pn2/Modern-Gray.jpg?rlkey=6co7y16d8ydzx4semv5obme3u&st=l0rwf7e2&dl=1' },
+        { id: 'mountain_view_gray', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/s96txf8z3mtvj2q98uxyr/Mountain-View-Gray.jpg?rlkey=8p0fccqa9ykjel6empdw1vh9m&st=tkihki7t&dl=1' },
+        { id: 'us_flag_gray', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/iy59fc81jb1unqjp0t9hu/USFlag-Gray.jpg?rlkey=6v66l8snzuv2jhz7lo9y7alh4&st=rhxri02u&dl=1' },
+        { id: 'wild_flowers_gray', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/eun3o2h1vqol04535ak1x/Wild-Flowers-Gray.jpg?rlkey=01s179l4t14nqde7ahzacrxie&st=i3cf317p&dl=1' }
     ],
     multi: [
-        { id: 'beach_multi', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/km4me3jq48wujuelskoa4/BeachP-Multi.jpg?rlkey=x71wp2gp2q76u5ahm8hy7u7f5&st=w43naspo' },
-        { id: 'clouds_multi', name: 'Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/hmtqvyo5sgjql5ywj8dfe/Clouds-MultiColor.jpg?rlkey=yuyjeicv26d04rmspyiewt9g6&st=7sy0i99y' },
-        { id: 'fading_hearts_multi', name: 'Fading Hearts', url: 'https://dl.dropboxusercontent.com/scl/fi/2mqpp8jjydknt0o9e3m0f/Fading-Hearts2-MultiColor.jpg?rlkey=m93zmwhz7somq54lvu6bwyp47&st=u6r7mqya' },
-        { id: 'fish_multi', name: 'Fish', url: 'https://dl.dropboxusercontent.com/scl/fi/uzcde02fw2dxyv0w9q5yc/Fish-Multi.jpg?rlkey=eckxs1xn31mhw50c3egnoj16z&st=hea23wsn' },
-        { id: 'golf_multi', name: 'Golf', url: 'https://dl.dropboxusercontent.com/scl/fi/3hsgqohgwvw5nq6z6ara2/Golf-Multi.jpg?rlkey=b4sedjhzaih2ug64xp1k1d2yf&st=qh848w54' },
-        { id: 'gradient_multi', name: 'Gradient', url: 'https://dl.dropboxusercontent.com/scl/fi/1xkk4t7isb3flveuz8x1d/Gradient-MultiColor.jpg?rlkey=mwguvnnpvwukteb5rczg84nfe&st=neq7piey' },
-        { id: 'modern_multi', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/r73vpo5m9xlz0ri9ml571/Modern-MultiColor.jpg?rlkey=xqpnd9hzkinka9moyddwhut20&st=kee6aw07' },
-        { id: 'mountain_view_multi', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/vxhrw09arznpqxft10w1h/Mountain-View-MultiColor.jpg?rlkey=6y84fz35bkwo0vil0jnb987hi&st=elnbavjh' },
-        { id: 'us_flag_multi', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/2wif65w9qqetrb98lbkt0/USFlag2-MultiColor.jpg?rlkey=ekkfqfvg1rk6qet57g7b9tbe7&st=oefqy66a' },
-        { id: 'wild_flowers_multi', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/jxds1jv1q2807hsfa54kd/Wild-Flowers-MultiColor.jpg?rlkey=pdz2gbvi962whdne2rc3ri7uk&st=m7qntt53' }
+        { id: 'beach_multi', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/li6xsmyww8vlus1vj9k15/Beach-MultiColor.jpg?rlkey=wriecwm0hh7djylxvvx1xwy8n&st=zdt8uvu2&dl=1' },
+        { id: 'clouds_multi', name: 'Clouds', url: 'https://dl.dropboxusercontent.com/scl/fi/hmtqvyo5sgjql5ywj8dfe/Clouds-MultiColor.jpg?rlkey=yuyjeicv26d04rmspyiewt9g6&st=7sy0i99y&dl=1' },
+        { id: 'fading_hearts_multi', name: 'Fading Hearts', url: 'https://dl.dropboxusercontent.com/scl/fi/jxh64fz3eh2vpwfkenn2s/Fading-Hearts-MultiColor.jpg?rlkey=x86ela75iorxaja05u44i63x2&st=mh2kvbqz&dl=1' },
+        { id: 'fish_multi', name: 'Fish', url: 'https://dl.dropboxusercontent.com/scl/fi/uzcde02fw2dxyv0w9q5yc/Fish-Multi.jpg?rlkey=eckxs1xn31mhw50c3egnoj16z&st=hea23wsn&dl=1' },
+        { id: 'golf_multi', name: 'Golf', url: 'https://dl.dropboxusercontent.com/scl/fi/3hsgqohgwvw5nq6z6ara2/Golf-Multi.jpg?rlkey=b4sedjhzaih2ug64xp1k1d2yf&st=qh848w54&dl=1' },
+        { id: 'gradient_multi', name: 'Gradient', url: 'https://dl.dropboxusercontent.com/scl/fi/1xkk4t7isb3flveuz8x1d/Gradient-MultiColor.jpg?rlkey=mwguvnnpvwukteb5rczg84nfe&st=neq7piey&dl=1' },
+        { id: 'modern_multi', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/r73vpo5m9xlz0ri9ml571/Modern-MultiColor.jpg?rlkey=xqpnd9hzkinka9moyddwhut20&st=kee6aw07&dl=1' },
+        { id: 'mountain_view_multi', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/vxhrw09arznpqxft10w1h/Mountain-View-MultiColor.jpg?rlkey=6y84fz35bkwo0vil0jnb987hi&st=elnbavjh&dl=1' },
+        { id: 'us_flag_multi', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/werp3j4w4atgdwrewrabv/USFlag-MultiColor.jpg?rlkey=ebuvd13tihtqy8xh1qnp5rjbi&st=g44vctkh&dl=1' },
+        { id: 'wild_flowers_multi', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/jxds1jv1q2807hsfa54kd/Wild-Flowers-MultiColor.jpg?rlkey=pdz2gbvi962whdne2rc3ri7uk&st=m7qntt53&dl=1' }
     ],
     vibrant: [
         { id: 'autumn_vibrant', name: 'Autumn', url: 'https://dl.dropboxusercontent.com/scl/fi/72xy7ynll2m4snbm73o82/autumn-9251331_1280.jpg?rlkey=7vb1pp7sa363brvxg7cf2tdto&st=257y3ono&dl=1' },
@@ -420,7 +420,7 @@ function loadTemplates(theme) {
     const gallery = document.getElementById('templateGallery');
     gallery.innerHTML = '';
 
-    const templates = TEMPLATES[theme];
+    const templates = MIDDLE_BACKGROUNDS[theme]; // Changed from TEMPLATES
     templates.forEach(template => {
         const item = document.createElement('div');
         item.className = 'template-item';
