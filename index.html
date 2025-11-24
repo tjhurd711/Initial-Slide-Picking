@@ -100,6 +100,30 @@
                     </div>
                 </div>
 
+                <!-- NEW: Title Slide Background Selection -->
+                <div class="form-group">
+                    <label>Opening Slide Background (first slide) *</label>
+                    <button type="button" class="dropdown-btn" id="titleDropdownBtn">
+                        Select an Opening Slide Background
+                    </button>
+                    <div id="titleBackgroundGallery" class="template-gallery" style="display: none;">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                    <input type="hidden" id="titleBackground" name="titleBackground" required>
+                </div>
+
+                <!-- NEW: End Slide Background Selection -->
+                <div class="form-group">
+                    <label>Closing Slide Background (last slide) *</label>
+                    <button type="button" class="dropdown-btn" id="endDropdownBtn">
+                        Select a Closing Slide Background
+                    </button>
+                    <div id="endBackgroundGallery" class="template-gallery" style="display: none;">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                    <input type="hidden" id="endBackground" name="endBackground" required>
+                </div>
+
                 <!-- Background Section -->
                 <div id="backgroundSection">
                     <!-- Background Type Selection -->
@@ -147,30 +171,6 @@
                             <small>Recommended: 1920x1080 or higher. Max 10MB. JPG or PNG format.</small>
                         </div>
                     </div>
-
-                    <!-- NEW: Title Slide Background Selection -->
-                    <div class="form-group">
-                        <label>Opening Slide Background (first slide) *</label>
-                        <button type="button" class="dropdown-btn" id="titleDropdownBtn">
-                            Select an Opening Slide Background
-                        </button>
-                        <div id="titleBackgroundGallery" class="template-gallery" style="display: none;">
-                            <!-- Will be populated by JavaScript -->
-                        </div>
-                        <input type="hidden" id="titleBackground" name="titleBackground" required>
-                    </div>
-
-                    <!-- NEW: End Slide Background Selection -->
-                    <div class="form-group">
-                        <label>Closing Slide Background (last slide) *</label>
-                        <button type="button" class="dropdown-btn" id="endDropdownBtn">
-                            Select a Closing Slide Background
-                        </button>
-                        <div id="endBackgroundGallery" class="template-gallery" style="display: none;">
-                            <!-- Will be populated by JavaScript -->
-                        </div>
-                        <input type="hidden" id="endBackground" name="endBackground" required>
-                    </div>
                         
                     <!-- Preview Carousel (shown for BOTH templates and custom uploads) -->
                     <div class="form-group">
@@ -196,7 +196,7 @@
                     </div>
                 </div>
                 <!-- End Background Section -->
-
+                
                 <!-- Border Section -->
                 <div id="borderSection">
                     <div class="form-group">
