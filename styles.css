@@ -588,3 +588,22 @@ footer {
     background: #e8f4ff;
     border-color: #1e3c72;
 }
+
+/* OR divider for background type radio buttons */
+.radio-group-with-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.radio-group-with-divider .radio-option {
+    flex: 1;
+    min-width: 150px;
+}
+
+.radio-group-with-divider .divider {
+    color: #718096;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0 10px;
+}
