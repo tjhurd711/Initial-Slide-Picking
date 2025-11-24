@@ -80,6 +80,11 @@ h1 {
     transition: border-color 0.3s;
 }
 
+/* Skinnier date inputs */
+.form-group input[type="date"] {
+    max-width: 220px;
+}
+
 .form-group input[type="text"]:focus,
 .form-group input[type="date"]:focus {
     outline: none;
