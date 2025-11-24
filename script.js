@@ -23,7 +23,12 @@ const MIDDLE_BACKGROUNDS = {
         { id: 'modern_blue', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/918cdbiofftso1ltvbio0/Modern-Blue.jpg?rlkey=l6wujvkettp2r62i8y1pfb2ui&st=x0q0u3u8&dl=1' },
         { id: 'mountain_view_blue', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/t2vy923uptzn0twpel7sb/Mountain-View-Blue.jpg?rlkey=ek580gqqlalqzu5a1y4zywsd3&st=tf6pu5dg&dl=1' },
         { id: 'us_flag_blue', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/hvzahgnw41yjaktw1a1qc/USFlag-Blue.jpg?rlkey=ov3s5zqcrpom3cb02s3bdlnkz&st=anv2j2xv&dl=1' },
-        { id: 'wild_flowers_blue', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/53os5m1hglm4z143ln80d/Wild-Flowers-Blue.jpg?rlkey=rojdxq4a6ycjfxtyxy09vwmfx&st=eo3otum5&dl=1' }
+        { id: 'wild_flowers_blue', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/53os5m1hglm4z143ln80d/Wild-Flowers-Blue.jpg?rlkey=rojdxq4a6ycjfxtyxy09vwmfx&st=eo3otum5&dl=1' },
+        { id: 'beach_heart_blue', name: 'Beach Heart', url: 'https://dl.dropboxusercontent.com/scl/fi/9l9u5nqcxgxa7j4gtzlja/Beach-Heart-Blue.jpg?rlkey=pa5yv0x7uy5zibaft2kb5ur0t&st=8mwyjr3z&dl=1' },
+        { id: 'cooking_blue', name: 'Cooking', url: 'https://dl.dropboxusercontent.com/scl/fi/0ylw2qyg02y9nmi1u6sl5/Cooking-Blue.jpg?rlkey=66ihflfbg1jan5oz5a74bj5x7&st=1fxp7t7k&dl=1' },
+        { id: 'football_blue', name: 'Football', url: 'https://dl.dropboxusercontent.com/scl/fi/qgz92bjmqapfzat0t7cyg/Football-Blue.jpg?rlkey=w6ml7g3yrnlf0bg83gng7l3xp&st=ivz2k45m&dl=1' },
+        { id: 'mountain_stream_blue', name: 'Mountain Stream', url: 'https://dl.dropboxusercontent.com/scl/fi/tuwe1z5y7us8wcbabd904/Mountain-Stream-Blue.jpg?rlkey=1vtaok61avucw1n0ou78fiuym&st=wbcflz7i&dl=1' },
+        { id: 'rainbow_tree_blue', name: 'Rainbow Tree', url: 'https://dl.dropboxusercontent.com/scl/fi/kuqlf6dp64dwz4crryh4l/Rainbow-Tree-Blue.jpg?rlkey=zxv1ro35lb0fbgcy23togprow&st=kuecb0j7&dl=1' }
     ],
     gray: [
         { id: 'beach_gray', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/h51u85odiseegy4rtrycu/Beach-Gray.jpg?rlkey=wiw0ae1t6ibcyicknzkkfb0ru&st=rzz6vj3l&dl=1' },
@@ -35,7 +40,12 @@ const MIDDLE_BACKGROUNDS = {
         { id: 'modern_gray', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/bleufllefjsgpxt7f8pn2/Modern-Gray.jpg?rlkey=6co7y16d8ydzx4semv5obme3u&st=l0rwf7e2&dl=1' },
         { id: 'mountain_view_gray', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/s96txf8z3mtvj2q98uxyr/Mountain-View-Gray.jpg?rlkey=8p0fccqa9ykjel6empdw1vh9m&st=tkihki7t&dl=1' },
         { id: 'us_flag_gray', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/iy59fc81jb1unqjp0t9hu/USFlag-Gray.jpg?rlkey=6v66l8snzuv2jhz7lo9y7alh4&st=rhxri02u&dl=1' },
-        { id: 'wild_flowers_gray', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/eun3o2h1vqol04535ak1x/Wild-Flowers-Gray.jpg?rlkey=01s179l4t14nqde7ahzacrxie&st=i3cf317p&dl=1' }
+        { id: 'wild_flowers_gray', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/eun3o2h1vqol04535ak1x/Wild-Flowers-Gray.jpg?rlkey=01s179l4t14nqde7ahzacrxie&st=i3cf317p&dl=1' },
+        { id: 'beach_heart_gray', name: 'Beach Heart', url: 'https://dl.dropboxusercontent.com/scl/fi/0ylw2qyg02y9nmi1u6sl5/Beach-Heart-Gray.jpg?rlkey=jr0n6w46pq7r6rmr2kj7v8tq0&st=zvb6ja2b&dl=1' },
+        { id: 'cooking_gray', name: 'Cooking', url: 'https://dl.dropboxusercontent.com/scl/fi/zn4wvhtitlsuadn3zkshh/Cooking-Gray.jpg?rlkey=u67vo082u1qeeztgddpdkp05e&st=mkg3jyq3&dl=1' },
+        { id: 'football_gray', name: 'Football', url: 'https://dl.dropboxusercontent.com/scl/fi/p3hp1866dx0tlctymy223/Football-Gray.jpg?rlkey=82crbphc9nvq6g8gqlxh59fo4&st=azyycdpj&dl=1' },
+        { id: 'mountain_stream_gray', name: 'Mountain Stream', url: 'https://dl.dropboxusercontent.com/scl/fi/2uyjuf4a0ipjscxe5nzt3/Mountain-Stream-Gray.jpg?rlkey=wo7o6nrhavl2j6r2veoykvpwb&st=eopx8pw3&dl=1' },
+        { id: 'rainbow_tree_gray', name: 'Rainbow Tree', url: 'https://dl.dropboxusercontent.com/scl/fi/9f4vsww6swvmlhlpvt5ad/Rainbow-Tree-Gray.jpg?rlkey=qxw22q081zj3574fpnez0evqh&st=g0003j2m&dl=1' }
     ],
     multi: [
         { id: 'beach_multi', name: 'Beach', url: 'https://dl.dropboxusercontent.com/scl/fi/li6xsmyww8vlus1vj9k15/Beach-MultiColor.jpg?rlkey=wriecwm0hh7djylxvvx1xwy8n&st=zdt8uvu2&dl=1' },
@@ -47,7 +57,12 @@ const MIDDLE_BACKGROUNDS = {
         { id: 'modern_multi', name: 'Modern', url: 'https://dl.dropboxusercontent.com/scl/fi/r73vpo5m9xlz0ri9ml571/Modern-MultiColor.jpg?rlkey=xqpnd9hzkinka9moyddwhut20&st=kee6aw07&dl=1' },
         { id: 'mountain_view_multi', name: 'Mountain View', url: 'https://dl.dropboxusercontent.com/scl/fi/vxhrw09arznpqxft10w1h/Mountain-View-MultiColor.jpg?rlkey=6y84fz35bkwo0vil0jnb987hi&st=elnbavjh&dl=1' },
         { id: 'us_flag_multi', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/werp3j4w4atgdwrewrabv/USFlag-MultiColor.jpg?rlkey=ebuvd13tihtqy8xh1qnp5rjbi&st=g44vctkh&dl=1' },
-        { id: 'wild_flowers_multi', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/jxds1jv1q2807hsfa54kd/Wild-Flowers-MultiColor.jpg?rlkey=pdz2gbvi962whdne2rc3ri7uk&st=m7qntt53&dl=1' }
+        { id: 'wild_flowers_multi', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/jxds1jv1q2807hsfa54kd/Wild-Flowers-MultiColor.jpg?rlkey=pdz2gbvi962whdne2rc3ri7uk&st=m7qntt53&dl=1' },
+        { id: 'beach_heart_multi', name: 'Beach Heart', url: 'https://dl.dropboxusercontent.com/scl/fi/u10rekyupukdw1tf3jfw8/Beach-Heart-Multi.jpg?rlkey=6npuy5cut8mlofqo5wdgea336&st=mhtircag&dl=1' },
+        { id: 'cooking_multi', name: 'Cooking', url: 'https://dl.dropboxusercontent.com/scl/fi/lug7il71ypjla0q3ape3f/Cooking-Multi.jpg?rlkey=vx5te1lor5a6b1q2gpw006ej5&st=fq0a2er5&dl=1' },
+        { id: 'garden_multi', name: 'Garden', url: 'https://dl.dropboxusercontent.com/scl/fi/7dff6qnsjxtfchnuai7zv/Garden-Multi.jpg?rlkey=3z2cma4oyywybtf2nq69897uu&st=o2fmvvd3&dl=1' },
+        { id: 'mountain_stream_multi', name: 'Mountain Stream', url: 'https://dl.dropboxusercontent.com/scl/fi/va577bdp6nu1ah3t955d2/Mountain-Stream-Multi.jpg?rlkey=k60ho9zfdun5w059gp3ci6bxj&st=i0ltwsz6&dl=1' },
+        { id: 'rainbow_tree_multi', name: 'Rainbow Tree', url: 'https://dl.dropboxusercontent.com/scl/fi/dq8lict1abu1qf2khsw0t/Rainbow-Tree-Multi.jpg?rlkey=gdxaxdvfdumzqgrfbnt3d0l1a&st=batq1439&dl=1' }
     ],
     vibrant: [
         { id: 'autumn_vibrant', name: 'Autumn', url: 'https://dl.dropboxusercontent.com/scl/fi/72xy7ynll2m4snbm73o82/autumn-9251331_1280.jpg?rlkey=7vb1pp7sa363brvxg7cf2tdto&st=257y3ono&dl=1' },
