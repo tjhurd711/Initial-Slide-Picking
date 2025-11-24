@@ -25,7 +25,7 @@ const MIDDLE_BACKGROUNDS = {
         { id: 'us_flag_blue', name: 'US Flag', url: 'https://dl.dropboxusercontent.com/scl/fi/hvzahgnw41yjaktw1a1qc/USFlag-Blue.jpg?rlkey=ov3s5zqcrpom3cb02s3bdlnkz&st=anv2j2xv&dl=1' },
         { id: 'wild_flowers_blue', name: 'Wild Flowers', url: 'https://dl.dropboxusercontent.com/scl/fi/53os5m1hglm4z143ln80d/Wild-Flowers-Blue.jpg?rlkey=rojdxq4a6ycjfxtyxy09vwmfx&st=eo3otum5&dl=1' },
         { id: 'beach_heart_blue', name: 'Beach Heart', url: 'https://dl.dropboxusercontent.com/scl/fi/9l9u5nqcxgxa7j4gtzlja/Beach-Heart-Blue.jpg?rlkey=pa5yv0x7uy5zibaft2kb5ur0t&st=8mwyjr3z&dl=1' },
-        { id: 'cooking_blue', name: 'Cooking', url: 'https://dl.dropboxusercontent.com/scl/fi/0ylw2qyg02y9nmi1u6sl5/Cooking-Blue.jpg?rlkey=66ihflfbg1jan5oz5a74bj5x7&st=1fxp7t7k&dl=1' },
+        { id: 'cooking_blue', name: 'Cooking', url: 'https://dl.dropboxusercontent.com/scl/fi/32a45256lt9qto58y6fdu/Cooking-Blue.jpg?rlkey=66ihflfbg1jan5oz5a74bj5x7&st=1fxp7t7k&dl=1' },
         { id: 'football_blue', name: 'Football', url: 'https://dl.dropboxusercontent.com/scl/fi/qgz92bjmqapfzat0t7cyg/Football-Blue.jpg?rlkey=w6ml7g3yrnlf0bg83gng7l3xp&st=ivz2k45m&dl=1' },
         { id: 'mountain_stream_blue', name: 'Mountain Stream', url: 'https://dl.dropboxusercontent.com/scl/fi/tuwe1z5y7us8wcbabd904/Mountain-Stream-Blue.jpg?rlkey=1vtaok61avucw1n0ou78fiuym&st=wbcflz7i&dl=1' },
         { id: 'rainbow_tree_blue', name: 'Rainbow Tree', url: 'https://dl.dropboxusercontent.com/scl/fi/kuqlf6dp64dwz4crryh4l/Rainbow-Tree-Blue.jpg?rlkey=zxv1ro35lb0fbgcy23togprow&st=kuecb0j7&dl=1' }
