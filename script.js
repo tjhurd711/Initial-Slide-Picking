@@ -588,8 +588,8 @@ function updatePreviewCarousel() {
     currentSlideIndex = 0;
     
     // Complete slide design images
-    const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/veiuv1adp575icictjrmj/Your-paragraph-text-1.png?rlkey=w4wrzkn85q290py82r7z3kz7j&st=byhh9k8d&dl=1';
-    const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/vym9bqjnb036c17kcijoj/Your-paragraph-text-2.png?rlkey=1bn5we5dnswfal1vpuvpblcsf&st=3gb48nlq&dl=1';
+    const completeTitleSlide = 'https://dl.dropboxusercontent.com/scl/fi/ltw06uv5wpw3lux27ruoy/Your-paragraph-text-1.png?rlkey=bxjocm96m91bkzqe6admsrvkf&st=ph19c06a&dl=1';
+    const completeEndSlide = 'https://dl.dropboxusercontent.com/scl/fi/ino9509bwr0e1drd3dk4h/Your-paragraph-text.png?rlkey=g98x7z4aj3t7bas535ubtagh9&st=ibqkr1ms&dl=1';
     
     // Sample photo for middle slide
     const samplePhotos = [
