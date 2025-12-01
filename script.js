@@ -331,6 +331,12 @@ function showFileOnlyForm() {
     if (borderSection) borderSection.style.display = 'none';
     if (formatSection) formatSection.style.display = 'none';
     
+    // Hide title and end background dropdowns
+    const titleDropdown = document.getElementById('titleDropdownBtn');
+    const endDropdown = document.getElementById('endDropdownBtn');
+    if (titleDropdown) titleDropdown.closest('.form-group').style.display = 'none';
+    if (endDropdown) endDropdown.closest('.form-group').style.display = 'none';
+    
     // Update page title
     const pageTitle = document.querySelector('h1');
     if (pageTitle) {
@@ -363,7 +369,7 @@ function showFileOnlyForm() {
     // Update submit button text
     const submitBtn = document.getElementById('submitBtn');
     if (submitBtn) {
-        submitBtn.style.display = 'block'; // Force visible
+        submitBtn.style.display = 'block';
         const btnText = submitBtn.querySelector('.btn-text');
         if (btnText) btnText.textContent = 'Submit';
     }
