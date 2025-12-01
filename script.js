@@ -779,7 +779,7 @@ async function handleSubmit(e) {
         const response = await submitToBackend(formData);
 
         // Redirect to thank you page
-        window.location.href = `thank-you.html?uid=${formData.uid}&name=${encodeURIComponent(formData.deceased_full_name)}`;
+        window.location.href = `https://loadingff.memorialvideo.ai/?uid=${formData.uid}&name=${encodeURIComponent(formData.customer_name)}&type=${formData.type}&email=${encodeURIComponent(formData.email)}&deceasedname=${encodeURIComponent(formData.deceased_full_name)}`;
     } catch (error) {
         showError('Submission failed. Please try again.');
         console.error('Submission error:', error);
