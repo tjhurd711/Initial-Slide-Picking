@@ -224,6 +224,12 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('type').value = type || '';
     document.getElementById('email').value = email || '';
 
+    // Swap logo for File_Only (sortbyage)
+    if (type && type.toLowerCase().includes('file')) {
+        document.getElementById('siteLogo').src = 'https://www.dropbox.com/scl/fi/22w5xw6t5keu6pa1cn8c5/Screenshot-2025-12-02-at-11.49.41-AM.png?rlkey=ev1s30l8q7dole5rd37i6z5xe&st=reqrcaww&raw=1';
+        document.getElementById('siteLogo').alt = 'SortByAge Logo';
+    }
+
     // Parse and pre-fill deceased name
     if (deceasedname) {
         parseAndFillDeceasedName(deceasedname);
